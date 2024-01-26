@@ -59,7 +59,7 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 export class Scene {
   constructor(aScene, aCamera, target = null) {
     this.currentMount = null;
-    this.renderer = new THREE.WebGLRenderer();
+    this.renderer = new THREE.WebGLRenderer({alpha: true});
 
     this.scene = aScene;
     this.camera = aCamera;

@@ -22,7 +22,7 @@ const Scene2 = (props) => {
     };
   }, []);
 
-  return <div ref={mountRef} style={{ width: "80%", height: "50vh", marginBottom:10, backgroundColor:"blue"}} />;
+  return <div ref={mountRef} style={{ width: "80%", height: "50vh", marginBottom:10}} />;
   //   return <div ref={mountRef} id="canvas-container"></div>;
 };
 

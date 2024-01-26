@@ -1,5 +1,8 @@
 import * as THREE from "three";
 
+const COLOR =  0x000000;
+// const COLOR = 0xffd412
+
 function linspace(start, end, numPoints) {
   const step = (end - start) / (numPoints - 1);
   return Array.from({ length: numPoints }, (_, index) => start + index * step);
@@ -69,7 +72,7 @@ const SDEjemplo1 = () => {
     }
 
     geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-    var material = new THREE.LineBasicMaterial({ color: 0x00ff00 });
+    var material = new THREE.LineBasicMaterial({ color: COLOR });
 
     return new THREE.Line(geometry, material);
   }
