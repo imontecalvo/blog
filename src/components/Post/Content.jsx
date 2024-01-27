@@ -9,6 +9,8 @@ import chart5 from "./imgs/chart5.png";
 import chart6 from "./imgs/chart6.png";
 import chart7 from "./imgs/chart7.png";
 import chart8 from "./imgs/chart8.png";
+import chart9 from "./imgs/chart9.png";
+import chart10 from "./imgs/chart10.png";
 
 import SDEjemplo1 from "../SDEjemplo1";
 import Scene from "../3DScene/Scene";
@@ -423,7 +425,7 @@ const Content = () => {
         Lotka-Volterra y está definido por las siguientes ecuaciones:
       </p>
       <BlockMath math="\frac{dx}{dt} = x - xy" />
-      <BlockMath math="\frac{dy}{dt} = -y - xy" />
+      <BlockMath math="\frac{dy}{dt} = -y + xy" />
       <p>
         En primer lugar, reescribimos el sistema tal que se cumpla{" "}
         {latexInline("\\frac{dX}{dt}=0")}
@@ -437,7 +439,7 @@ const Content = () => {
       >
         <div>
           <BlockMath math="0 = x - xy" />
-          <BlockMath math="0 = -y - xy" />
+          <BlockMath math="0 = -y + xy" />
         </div>
         <p style={{ margin: 20 }}>{latexInline("\\Longrightarrow")}</p>
         <div>
@@ -583,7 +585,8 @@ const Content = () => {
         </li>
       </ol>
       <h4>En sistemas lineales</h4>
-      Continuamos con el sistema lineal utilizado previamente.
+      Continuamos con el sistema lineal utilizado previamente (el mismo de
+      tiempo discreto).
       <BlockMath math="x_t = 0.5·x_{t-1} + y_{t-1} + 0.25" />
       <BlockMath math="y_t = -0.5·x_{t-1} + y_{t-1} + 0.75" />
       Cuyo punto fijo se encuentra en {latexInline("(1.5,0.5)")}. Primero
@@ -597,8 +600,124 @@ const Content = () => {
       <br />
       Por lo tanto, el comportamiento del punto fijo se trata de un ciclo limite
       pudiendo observar trayectorias ovaladas alrededor del punto fijo.
-      Comprobemoslo.
+      <br />
+      <br />
+      Comprobémoslo.
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          marginBottom: 50,
+          marginTop: 40,
+        }}
+      >
+        <img
+          src={chart9}
+          style={{ maxWidth: "500px", maxHeight: "500px" }}
+        ></img>
+        <figcaption
+          style={{
+            fontStyle: "italic",
+            fontSize: "15px",
+            maxWidth: "500px",
+            marginLeft: 50,
+          }}
+        >
+          Fig. 9. Trayectorias elípticas que sigue el sistema en el espacio de
+          fases en regiones cercanas al punto fijo encontrado.
+        </figcaption>
+      </div>
       <h4>En sistemas no lineales</h4>
+      Continuamos con el sistema no lineal de Lotka-Volterra, utilizado
+      previamente en la detección de puntos fijos para sistemas de tiempo
+      continuo.
+      <BlockMath math="\frac{dx}{dt} = x - xy" />
+      <BlockMath math="\frac{dy}{dt} = -y + xy" />
+      Sabemos que posee dos puntos fijos: {latexInline("(0,0)")} y{" "}
+      {latexInline("(1,1)")}
+      <br />
+      <br />
+      Lo primero que debemos hacer es obtener la matriz jacobiana. Para esto,
+      derivamos cada ecuación respecto de cada variable.
+      <BlockMath math="J_f = \begin{bmatrix} 1 - y & -x \\ y & -1+x \end{bmatrix} "></BlockMath>
+      <p>
+        Luego, hay que evaluar la matriz jacobiana en cada uno de los puntos
+        fijos. Para cada matriz obtenida, obtener autovalores y realizar el
+        análisis de la estabilidad de los puntos fijos tal como en el ejemplo
+        anterior
+      </p>
+      <ul>
+        <li>
+          <p>
+            <b>Punto fijo {latexInline("(0,0)")}</b>
+          </p>
+          <BlockMath math="J_f = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} "></BlockMath>
+          <p>
+            Autovalores: {latexInline("\\lambda_1 = 1")} &nbsp;&nbsp; y
+            &nbsp;&nbsp;
+            {latexInline("\\lambda_2 = -1")}
+          </p>
+          <p>
+            Tenemos que {latexInline("Re(\\lambda_1) = 1")} &nbsp;&nbsp; y
+            &nbsp;&nbsp; {latexInline("Re(\\lambda_2) = -1")}.
+          </p>
+          <p>
+            Es decir, {latexInline("Re(\\lambda_1)>0")} &nbsp;&nbsp; y
+            &nbsp;&nbsp; {latexInline("Re(\\lambda_2)<0")}, por lo que se trata
+            de un punto fijo inestable de tipo <i>silla (Saddle point)</i>. Esto
+            significa que atrae en una dirección pero repele en otra.
+          </p>
+        </li>
+        <br />
+        <li>
+          <p>
+            <b>Punto fijo {latexInline("(1,1)")}</b>
+          </p>
+          <BlockMath math="J_f = \begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix} "></BlockMath>
+          <p>
+            Autovalores: {latexInline("\\lambda_1 = i")} &nbsp;&nbsp; y
+            &nbsp;&nbsp;
+            {latexInline("\\lambda_2 = -i")}
+          </p>
+          <p>
+            Tenemos que {latexInline("Re(\\lambda_1) = 0")} &nbsp;&nbsp; y
+            &nbsp;&nbsp; {latexInline("Re(\\lambda_2) = 0")}.
+          </p>
+          <p>
+            Es decir, {latexInline("Re(\\lambda_1)>0")} &nbsp;&nbsp; y
+            &nbsp;&nbsp; {latexInline("Re(\\lambda_2)<0")}, por lo que se trata
+            de un punto fijo estable de tipo <i>Lyapunov</i>. Esto significa que
+            se genera un ciclo limite donde el sistema orbita alrededor del
+            punto en sus inmediaciones.
+          </p>
+        </li>
+      </ul>
+      <p> Comprobemos esto resultados graficando el espacio de fases</p>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          marginBottom: 50,
+          marginTop: 40,
+        }}
+      >
+        <img
+          src={chart10}
+          style={{ maxWidth: "500px", maxHeight: "500px" }}
+        ></img>
+        <figcaption
+          style={{
+            fontStyle: "italic",
+            fontSize: "15px",
+            maxWidth: "500px",
+            marginLeft: 50,
+          }}
+        >
+          Fig. 10. Trayectorias que sigue el modelo de Lotka-Volterra. El (0,0) es un punto silla, que atrae en el eje vertical y repele en el horizontal. El (1,1) es un punto estable de Lyapunov, que genera un ciclo límite.
+        </figcaption>
+      </div>
     </>
   );
 };
