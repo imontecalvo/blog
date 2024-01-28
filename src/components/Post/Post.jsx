@@ -4,7 +4,7 @@ import Content from "./Content";
 const Post = () => {
   return (
     <>
-    <div className="postContainer">
+    <div className="postContainer" >
       <Content/>
     </div>
     </>

@@ -23,8 +23,13 @@ const Content = () => {
   const sd1 = SDEjemplo1();
 
   return (
-    <>
-      <h1>Titulo</h1>
+    <div>
+      <h2 className="upper-title">Entre equilibrios y transformaciones:</h2>
+      <div style={{ marginBottom: "30px" }}>
+        <h1>Descubriendo los </h1>
+        <h1 className="main-title">Sistemas Dinámicos</h1>
+      </div>
+
       <p>
         ¿Alguna vez te preguntaste cómo evoluciona el crecimiento de una
         población, el impacto de una epidemia, o incluso el flujo de agua que
@@ -34,6 +39,9 @@ const Content = () => {
         que podrían ocurrir, todo basado en las condiciones iniciales
         establecidas.
       </p>
+
+
+
       <h2>¿Qué es un sistema dinámico?</h2>
       <p>
         Comencemos por entender qué es exactamente un sistema dinámico. Se trata
@@ -62,34 +70,26 @@ const Content = () => {
         irá evolucionando y generando una trayectoria, tal como lo vemos a
         continuacion.
       </p>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-evenly",
-          marginBottom: 50,
-          marginTop: 40,
-        }}
+      <div className="multiimage-container"
       >
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        <div className="image-container">
           <img
             src={chart1}
-            style={{ maxWidth: "400px", maxHeight: "400px" }}
           ></img>
           <figcaption
-            style={{ fontStyle: "italic", fontSize: "15px", marginLeft: 40 }}
+            // style={{ fontStyle: "italic", fontSize: "15px", marginLeft: 40 }}
           >
             Fig. 1. Trayectorias que sigue el sistema lo largo del tiempo cuando
             k=1.2 tal que la población crece exponencialmente tendiendo al
             infinito.
           </figcaption>
         </div>
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        <div className="image-container">
           <img
             src={chart2}
-            style={{ maxWidth: "400px", maxHeight: "400px" }}
           ></img>
           <figcaption
-            style={{ fontStyle: "italic", fontSize: "15px", marginLeft: 40 }}
+            // style={{ fontStyle: "italic", fontSize: "15px", marginLeft: 40 }}
           >
             Fig. 2. Trayectorias que sigue el sistema lo largo del tiempo cuando
             k=0.8 tal que la población decrece exponencialmente convergiendo a
@@ -97,7 +97,7 @@ const Content = () => {
           </figcaption>
         </div>
       </div>
-      <p>
+      {/* <p>
         Además, como se puede ver en los gráficos anteriores, dependiendo del
         valor que tome el factor {latexInline("k")}, el comportamiento será
         distinto. Para este caso particular, cuando {latexInline("k>0")} el
@@ -118,12 +118,12 @@ const Content = () => {
         variaciones en las condiciones iniciales pueden dar como resultado
         diferentes trayectorias a lo largo del tiempo, puediendo observar para
         cada una de estas un comportamiento distinto, tal como:
+        <ul>
+          <li>Divergencia</li>
+          <li>Convergencia</li>
+          <li>Oscilación alrededor de un punto</li>
+        </ul>
       </p>
-      <ul>
-        <li>Divergencia</li>
-        <li>Convergencia</li>
-        <li>Oscilación alrededor de un punto</li>
-      </ul>
       <h3>Sistema dinámico con dos variables</h3>
       <p>
         Ahora analicemos el siguiente sistema, que si bien sigue siendo bastante
@@ -233,8 +233,8 @@ const Content = () => {
         mismo de la Fig. 3, donde las trayectorias se acercan en forma
         espiralada al {latexInline("(0,0)")}. Decimos que este tipo de gráficos
         representa el espacio de fases, concepto que veremos a continuación.
-      </p>
-      <h2>Algunos conceptos claves</h2>
+      </p> */}
+      {/* <h2>Algunos conceptos claves</h2>
       <p>
         Hemos estado hablando, entre otras cosoas, de trayectorias, espacios de
         fases y puntos que tienen una influencia particular en el sistema. Antes
@@ -265,22 +265,22 @@ const Content = () => {
       <p>
         Los puntos fijos pueden ejercer diferentes influencias sobre el sistema.
         Entre estos efectos se encuentran:
+        <ul>
+          <li>
+            <u>Atracción</u>: El sistema tiende a evolucionar hacia estos
+            puntos, son atractores. Es el caso de nuestro ejemplo, donde el
+            sistema evolucionaba hacia el {latexInline("(0,0)")}.
+          </li>
+          <li>
+            <u>Repulsión</u>: El sistema tiende a evolucionar alejándose de
+            estos puntos, son repulsores.
+          </li>
+          <li>
+            <u>Ciclo límite</u>: No atraen ni repulsan al sistema, pero lo
+            mantienen girando en una órbita alrededor de suyo.
+          </li>
+        </ul>
       </p>
-      <ul>
-        <li>
-          <u>Atracción</u>: El sistema tiende a evolucionar hacia estos puntos,
-          son atractores. Es el caso de nuestro ejemplo, donde el sistema
-          evolucionaba hacia el {latexInline("(0,0)")}.
-        </li>
-        <li>
-          <u>Repulsión</u>: El sistema tiende a evolucionar alejándose de estos
-          puntos, son repulsores.
-        </li>
-        <li>
-          <u>Ciclo límite</u>: No atraen ni repulsan al sistema, pero lo
-          mantienen girando en una órbita alrededor de suyo.
-        </li>
-      </ul>
       <div
         style={{
           display: "flex",
@@ -302,63 +302,51 @@ const Content = () => {
           atractores y siete repulsores, y en el tercero un ciclo límite.
         </figcaption>
       </div>
-      <h2>Clasificación</h2>
+      {/* <h2>Clasificación</h2>
       <p>
         Ahora bien ¿Son todos los sistemas dinámicos iguales a los dos ejemplos
         que vimos? ¿Qué tipos de sistemas dinámicos existen? Respondiendo a esta
         pregunta, podemos decir que a grandes rasgos, existen dos criterios
         principales para clasificar nuestros sistemas dinámicos
-      </p>
-      <ul>
-        <li>
-          Según la temporalidad
-          <ul>
-            <li>
-              <p>
+        <ul>
+          <li>
+            <b>Según la temporalidad</b>
+            <ul>
+              <li>
                 <u>Tiempo dicreto</u>: El transcurso del tiempo sucede de manera
                 discreta, es decir, de a saltos. A su vez, el comportamiento del
                 sistema se determina a partir de ecuaciones de recurrencia.
-              </p>
-              <BlockMath math="x_t = F(x_t, t)" />
-              <p>
+                <BlockMath math="x_t = F(x_t, t)" />
                 Los dos ejemplos que vimos, efectivamente, son de tiempo
                 discreto.
-              </p>
-            </li>
-            <li>
-              <p>
+              </li>
+              <li>
                 <u>Tiempo continuo</u>: El transcurso del tiempo sucede de
                 manera continua. Además, el comportamiento del sistema queda
                 definido a partir de un sistema de ecuaciones diferenciales.
-              </p>
-
-              <BlockMath math="\frac{dx}{dt} = F(x, t)" />
-            </li>
-          </ul>
-        </li>
-        <li>
-          Según la linealidad
-          <ul>
-            <li>
-              <p>
+                <BlockMath math="\frac{dx}{dt} = F(x, t)" />
+              </li>
+            </ul>
+          </li>
+          <li>
+            <b>Según la linealidad</b>
+            <ul>
+              <li>
                 <u>Lineales</u>: Tal como el nombre lo indica, el comportamiento
                 queda definido por ecuaciones lineales. A lo sumo, tienen un
                 único punto fijo
-              </p>
-              <p>
+                <br />
                 Los dos ejemplos vistos, también son lineales y de hecho
                 presentan un único punto fijo.
-              </p>
-            </li>
-            <li>
-              <p>
+              </li>
+              <li>
                 <u>No Lineales</u>: El comportamiento queda definido por
                 ecuaciones no lineales. Pueden tener múltiples puntos fijos.
-              </p>
-            </li>
-          </ul>
-        </li>
-      </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </p>
       <h2>Comportamiento</h2>
       <p>
         Ya tenemos una idea más clara de qué es un sistema dinámico y los
@@ -455,270 +443,248 @@ const Content = () => {
         {latexInline("(1,1)")} ya que no es lineal.
       </p>
       <h3>Efecto de puntos fijos</h3>
-      Ya sabemos calcular cuáles son los puntos fijos de nuestro sistema, ahora
-      veremos cómo es posible analizar el efecto o influencia de los mismos
-      sobre el comportamiento que adquiere el sistema. Dependiendo si el sistema
-      es lineal o no, el proceso difiere ligeramente.
-      <p>Los pasos a seguir son:</p>
-      <ol>
-        <li>
-          <ul>
-            <li>
-              <p>
+      <p>
+        Ya sabemos calcular cuáles son los puntos fijos de nuestro sistema,
+        ahora veremos cómo es posible analizar el efecto o influencia de los
+        mismos sobre el comportamiento que adquiere el sistema. Dependiendo si
+        el sistema es lineal o no, el proceso difiere ligeramente.
+        <br />
+        <br />
+        Los pasos a seguir son:
+        <ol>
+          <li>
+            <ul>
+              <li>
                 <b>Lineales</b>: Es el caso más simple, debemos obtener
                 solamente la matriz del sistema de ecuaciones.
-              </p>
-            </li>
-            <li>
-              <p>
+              </li>
+              <li>
                 <b>No lineales</b>: No podemos representar al sistema de
                 ecuaciones mediante una matriz dado que no son lineales. Lo se
                 debe hacer es obtener la matriz jacobiana. Esto implica que
                 vamos a obtener una aproximación lineal alrededor de cada punto
                 fijo. Esta es la gran diferencia ya que con sistemas lineales
                 esto no es necesario, luego el procedimiento es el mismo.
-              </p>
-            </li>
-          </ul>
-        </li>
+              </li>
+            </ul>
+          </li>
 
-        <li>
-          <ul>
-            <li>
-              <p>
+          <li>
+            <ul>
+              <li>
                 <b>Lineales</b>: A partir de la matriz obtenida, calculamos los
                 autovalores.
-              </p>
-            </li>
-            <li>
-              <p>
+              </li>
+              <li>
                 <b>No lineales</b>: A diferencia de los lineales, los no
                 lineales pueden tener múltiples puntos fijos, por lo que por
                 cada uno de estos debemos evaluar en la matriz jacobiana y
                 posteriormente calcular los autovalores.
-              </p>
-            </li>
-          </ul>
-        </li>
+              </li>
+            </ul>
+          </li>
 
-        <li>
-          Si nuestro sistema es de tiempo discreto, nos quedamos con el modulo
-          del autovalor. Si es de tiempo discreto, nos quedamos con la parte
-          real del autovalor.
-        </li>
+          <li>
+            Si nuestro sistema es de tiempo discreto, nos quedamos con el modulo
+            del autovalor. Si es de tiempo discreto, nos quedamos con la parte
+            real del autovalor.
+          </li>
 
-        <li>
-          Determinar el tipo de punto fijo teniendo en cuenta:
-          <ul>
-            <li>
-              Si es de tiempo discreto, analizar si el modulo es menor, igual o
-              mayor a 1
-            </li>
-            <li>
-              Si es de tiempo continuo, analizar si la componente real es menor,
-              igual o mayor a 0
-            </li>
-          </ul>
-          <p>
-            {" "}
+          <li>
+            Determinar el tipo de punto fijo teniendo en cuenta:
+            <ul>
+              <li>
+                Si es de tiempo discreto, analizar si el modulo es menor, igual
+                o mayor a 1
+              </li>
+              <li>
+                Si es de tiempo continuo, analizar si la componente real es
+                menor, igual o mayor a 0
+              </li>
+            </ul>{" "}
             Para esto, podemos usar las siguientes referencias extraídas de{" "}
             <i>
               "Introduction to the Modeling and Analysis of Complex Systems",
               Hiroki Sayama
             </i>
             .
-          </p>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              marginBottom: 50,
-              marginTop: 40,
-            }}
-          >
             <div
               style={{
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "center",
                 marginBottom: 50,
+                marginTop: 40,
               }}
             >
-              <img
-                src={chart7}
-                style={{ maxWidth: "600px", maxHeight: "600px" }}
-              ></img>
-              <figcaption
+              <div
                 style={{
-                  fontStyle: "italic",
-                  fontSize: "15px",
-                  marginLeft: 40,
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  marginBottom: 50,
                 }}
               >
-                Fig. 7. Análisis de estabilidad de puntos fijos para sistemas de
-                tiempo discreto.
-              </figcaption>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-              }}
-            >
-              <img
-                src={chart8}
-                style={{ maxWidth: "600px", maxHeight: "600px" }}
-              ></img>
-              <figcaption
+                <img
+                  src={chart7}
+                  style={{ maxWidth: "600px", maxHeight: "600px" }}
+                ></img>
+                <figcaption
+                  style={{
+                    fontStyle: "italic",
+                    fontSize: "15px",
+                    marginLeft: 40,
+                  }}
+                >
+                  Fig. 7. Análisis de estabilidad de puntos fijos para sistemas
+                  de tiempo discreto.
+                </figcaption>
+              </div>
+              <div
                 style={{
-                  fontStyle: "italic",
-                  fontSize: "15px",
-                  marginLeft: 40,
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
                 }}
               >
-                Fig. 8. Análisis de estabilidad de puntos fijos para sistemas de
-                tiempo continuo.
-              </figcaption>
+                <img
+                  src={chart8}
+                  style={{ maxWidth: "600px", maxHeight: "600px" }}
+                ></img>
+                <figcaption
+                  style={{
+                    fontStyle: "italic",
+                    fontSize: "15px",
+                    marginLeft: 40,
+                  }}
+                >
+                  Fig. 8. Análisis de estabilidad de puntos fijos para sistemas
+                  de tiempo continuo.
+                </figcaption>
+              </div>
             </div>
-          </div>
-        </li>
-      </ol>
-      <h4>En sistemas lineales</h4>
-      Continuamos con el sistema lineal utilizado previamente (el mismo de
-      tiempo discreto).
-      <BlockMath math="x_t = 0.5·x_{t-1} + y_{t-1} + 0.25" />
-      <BlockMath math="y_t = -0.5·x_{t-1} + y_{t-1} + 0.75" />
-      Cuyo punto fijo se encuentra en {latexInline("(1.5,0.5)")}. Primero
-      obtenemos la matriz del sistema.
-      <BlockMath math="A = \begin{bmatrix} 0.5 & 1 \\ -0.5 & 1 \end{bmatrix} "></BlockMath>
-      Los autovalores de esta matriz son:
-      <BlockMath math="\lambda_1 = \frac{3}{4} + \frac{\sqrt{7}}{4}i"></BlockMath>
-      <BlockMath math="\lambda_2 = \frac{3}{4} - \frac{\sqrt{7}}{4}i"></BlockMath>
-      Vemos que: {latexInline("|\\lambda_1| = |\\lambda_2| = 1")}
-      <br />
-      <br />
-      Por lo tanto, el comportamiento del punto fijo se trata de un ciclo limite
-      pudiendo observar trayectorias ovaladas alrededor del punto fijo.
-      <br />
-      <br />
-      Comprobémoslo.
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          marginBottom: 50,
-          marginTop: 40,
-        }}
-      >
-        <img
-          src={chart9}
-          style={{ maxWidth: "500px", maxHeight: "500px" }}
-        ></img>
-        <figcaption
+          </li>
+        </ol>
+        <h4>En sistemas lineales</h4>
+        Continuamos con el sistema lineal utilizado previamente (el mismo de
+        tiempo discreto).
+        <BlockMath math="x_t = 0.5·x_{t-1} + y_{t-1} + 0.25" />
+        <BlockMath math="y_t = -0.5·x_{t-1} + y_{t-1} + 0.75" />
+        Cuyo punto fijo se encuentra en {latexInline("(1.5,0.5)")}. Primero
+        obtenemos la matriz del sistema.
+        <BlockMath math="A = \begin{bmatrix} 0.5 & 1 \\ -0.5 & 1 \end{bmatrix} "></BlockMath>
+        Los autovalores de esta matriz son:
+        <BlockMath math="\lambda_1 = \frac{3}{4} + \frac{\sqrt{7}}{4}i"></BlockMath>
+        <BlockMath math="\lambda_2 = \frac{3}{4} - \frac{\sqrt{7}}{4}i"></BlockMath>
+        Vemos que: {latexInline("|\\lambda_1| = |\\lambda_2| = 1")}
+        <br />
+        <br />
+        Por lo tanto, el comportamiento del punto fijo se trata de un ciclo
+        limite pudiendo observar trayectorias ovaladas alrededor del punto fijo.
+        <br />
+        <br />
+        Comprobémoslo.
+        <div
           style={{
-            fontStyle: "italic",
-            fontSize: "15px",
-            maxWidth: "500px",
-            marginLeft: 50,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            marginBottom: 50,
+            marginTop: 40,
           }}
         >
-          Fig. 9. Trayectorias elípticas que sigue el sistema en el espacio de
-          fases en regiones cercanas al punto fijo encontrado.
-        </figcaption>
-      </div>
-      <h4>En sistemas no lineales</h4>
-      Continuamos con el sistema no lineal de Lotka-Volterra, utilizado
-      previamente en la detección de puntos fijos para sistemas de tiempo
-      continuo.
-      <BlockMath math="\frac{dx}{dt} = x - xy" />
-      <BlockMath math="\frac{dy}{dt} = -y + xy" />
-      Sabemos que posee dos puntos fijos: {latexInline("(0,0)")} y{" "}
-      {latexInline("(1,1)")}
-      <br />
-      <br />
-      Lo primero que debemos hacer es obtener la matriz jacobiana. Para esto,
-      derivamos cada ecuación respecto de cada variable.
-      <BlockMath math="J_f = \begin{bmatrix} 1 - y & -x \\ y & -1+x \end{bmatrix} "></BlockMath>
-      <p>
+          <img
+            src={chart9}
+            style={{ maxWidth: "500px", maxHeight: "500px" }}
+          ></img>
+          <figcaption
+            style={{
+              fontStyle: "italic",
+              fontSize: "15px",
+              maxWidth: "500px",
+              marginLeft: 50,
+            }}
+          >
+            Fig. 9. Trayectorias elípticas que sigue el sistema en el espacio de
+            fases en regiones cercanas al punto fijo encontrado.
+          </figcaption>
+        </div>
+        <h4>En sistemas no lineales</h4>
+        Continuamos con el sistema no lineal de Lotka-Volterra, utilizado
+        previamente en la detección de puntos fijos para sistemas de tiempo
+        continuo.
+        <BlockMath math="\frac{dx}{dt} = x - xy" />
+        <BlockMath math="\frac{dy}{dt} = -y + xy" />
+        Sabemos que posee dos puntos fijos: {latexInline("(0,0)")} y{" "}
+        {latexInline("(1,1)")}
+        <br />
+        <br />
+        Lo primero que debemos hacer es obtener la matriz jacobiana. Para esto,
+        derivamos cada ecuación respecto de cada variable.
+        <BlockMath math="J_f = \begin{bmatrix} 1 - y & -x \\ y & -1+x \end{bmatrix} "></BlockMath>
         Luego, hay que evaluar la matriz jacobiana en cada uno de los puntos
         fijos. Para cada matriz obtenida, obtener autovalores y realizar el
         análisis de la estabilidad de los puntos fijos tal como en el ejemplo
         anterior
-      </p>
-      <ul>
-        <li>
-          <p>
+        <ul>
+          <li>
             <b>Punto fijo {latexInline("(0,0)")}</b>
-          </p>
-          <BlockMath math="J_f = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} "></BlockMath>
-          <p>
+            <BlockMath math="J_f = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} "></BlockMath>
             Autovalores: {latexInline("\\lambda_1 = 1")} &nbsp;&nbsp; y
             &nbsp;&nbsp;
             {latexInline("\\lambda_2 = -1")}
-          </p>
-          <p>
             Tenemos que {latexInline("Re(\\lambda_1) = 1")} &nbsp;&nbsp; y
-            &nbsp;&nbsp; {latexInline("Re(\\lambda_2) = -1")}.
-          </p>
-          <p>
-            Es decir, {latexInline("Re(\\lambda_1)>0")} &nbsp;&nbsp; y
-            &nbsp;&nbsp; {latexInline("Re(\\lambda_2)<0")}, por lo que se trata
-            de un punto fijo inestable de tipo <i>silla (Saddle point)</i>. Esto
-            significa que atrae en una dirección pero repele en otra.
-          </p>
-        </li>
-        <br />
-        <li>
-          <p>
+            &nbsp;&nbsp; {latexInline("Re(\\lambda_2) = -1")}. Es decir,{" "}
+            {latexInline("Re(\\lambda_1)>0")} &nbsp;&nbsp; y &nbsp;&nbsp;{" "}
+            {latexInline("Re(\\lambda_2)<0")}, por lo que se trata de un punto
+            fijo inestable de tipo <i>silla (Saddle point)</i>. Esto significa
+            que atrae en una dirección pero repele en otra.
+          </li>
+          <br />
+          <li>
             <b>Punto fijo {latexInline("(1,1)")}</b>
-          </p>
-          <BlockMath math="J_f = \begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix} "></BlockMath>
-          <p>
+            <BlockMath math="J_f = \begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix} "></BlockMath>
             Autovalores: {latexInline("\\lambda_1 = i")} &nbsp;&nbsp; y
             &nbsp;&nbsp;
             {latexInline("\\lambda_2 = -i")}
-          </p>
-          <p>
             Tenemos que {latexInline("Re(\\lambda_1) = 0")} &nbsp;&nbsp; y
-            &nbsp;&nbsp; {latexInline("Re(\\lambda_2) = 0")}.
-          </p>
-          <p>
-            Es decir, {latexInline("Re(\\lambda_1)>0")} &nbsp;&nbsp; y
-            &nbsp;&nbsp; {latexInline("Re(\\lambda_2)<0")}, por lo que se trata
-            de un punto fijo estable de tipo <i>Lyapunov</i>. Esto significa que
-            se genera un ciclo limite donde el sistema orbita alrededor del
-            punto en sus inmediaciones.
-          </p>
-        </li>
-      </ul>
-      <p> Comprobemos esto resultados graficando el espacio de fases</p>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          marginBottom: 50,
-          marginTop: 40,
-        }}
-      >
-        <img
-          src={chart10}
-          style={{ maxWidth: "500px", maxHeight: "500px" }}
-        ></img>
-        <figcaption
+            &nbsp;&nbsp; {latexInline("Re(\\lambda_2) = 0")}. Es decir,{" "}
+            {latexInline("Re(\\lambda_1)>0")} &nbsp;&nbsp; y &nbsp;&nbsp;{" "}
+            {latexInline("Re(\\lambda_2)<0")}, por lo que se trata de un punto
+            fijo estable de tipo <i>Lyapunov</i>. Esto significa que se genera
+            un ciclo limite donde el sistema orbita alrededor del punto en sus
+            inmediaciones.
+          </li>
+        </ul>
+        Comprobemos esto resultados graficando el espacio de fases
+        <div
           style={{
-            fontStyle: "italic",
-            fontSize: "15px",
-            maxWidth: "500px",
-            marginLeft: 50,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            marginBottom: 50,
+            marginTop: 40,
           }}
         >
-          Fig. 10. Trayectorias que sigue el modelo de Lotka-Volterra. El (0,0) es un punto silla, que atrae en el eje vertical y repele en el horizontal. El (1,1) es un punto estable de Lyapunov, que genera un ciclo límite.
-        </figcaption>
-      </div>
-    </>
+          <img
+            src={chart10}
+            style={{ maxWidth: "500px", maxHeight: "500px" }}
+          ></img>
+          <figcaption
+            style={{
+              fontStyle: "italic",
+              fontSize: "15px",
+              maxWidth: "500px",
+              marginLeft: 50,
+            }}
+          >
+            Fig. 10. Trayectorias que sigue el modelo de Lotka-Volterra. El
+            (0,0) es un punto silla, que atrae en el eje vertical y repele en el
+            horizontal. El (1,1) es un punto estable de Lyapunov, que genera un
+            ciclo límite.
+          </figcaption>
+        </div>
+      </p> */}
+    </div>
   );
 };
 
