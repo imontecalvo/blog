@@ -7,7 +7,7 @@ import "./App.css";
 
 function App() {
   return (
-    <div>
+    <div className="background-container">
       <NavBar />
       <Post />/
     </div>

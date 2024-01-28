@@ -40,8 +40,6 @@ const Content = () => {
         establecidas.
       </p>
 
-
-
       <h2>¿Qué es un sistema dinámico?</h2>
       <p>
         Comencemos por entender qué es exactamente un sistema dinámico. Se trata
@@ -70,34 +68,25 @@ const Content = () => {
         irá evolucionando y generando una trayectoria, tal como lo vemos a
         continuacion.
       </p>
-      <div className="multiimage-container"
-      >
+      <div className="multiimage-container">
         <div className="image-container">
-          <img
-            src={chart1}
-          ></img>
-          <figcaption
-            // style={{ fontStyle: "italic", fontSize: "15px", marginLeft: 40 }}
-          >
+          <img src={chart1}></img>
+          <figcaption>
             Fig. 1. Trayectorias que sigue el sistema lo largo del tiempo cuando
             k=1.2 tal que la población crece exponencialmente tendiendo al
             infinito.
           </figcaption>
         </div>
         <div className="image-container">
-          <img
-            src={chart2}
-          ></img>
-          <figcaption
-            // style={{ fontStyle: "italic", fontSize: "15px", marginLeft: 40 }}
-          >
+          <img src={chart2}></img>
+          <figcaption>
             Fig. 2. Trayectorias que sigue el sistema lo largo del tiempo cuando
             k=0.8 tal que la población decrece exponencialmente convergiendo a
             0.
           </figcaption>
         </div>
       </div>
-      {/* <p>
+      <p>
         Además, como se puede ver en los gráficos anteriores, dependiendo del
         valor que tome el factor {latexInline("k")}, el comportamiento será
         distinto. Para este caso particular, cuando {latexInline("k>0")} el
@@ -152,6 +141,7 @@ const Content = () => {
         estado del sistema, es decir, los valores de las variables{" "}
         {latexInline("x")} e {latexInline("y")}.
       </p>
+
       <div style={{ display: "flex", justifyContent: "center" }}>
         <Scene scene={sd1.scene} camera={sd1.camera} target={sd1.target} />
       </div>
@@ -161,34 +151,17 @@ const Content = () => {
         transcurre el tiempo todas las trayectorias parecen conducir a un punto,
         el {latexInline("(0,0)")}.
       </p>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-evenly",
-          marginBottom: 50,
-          marginTop: 40,
-        }}
-      >
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <img
-            src={chart3}
-            style={{ maxWidth: "400px", maxHeight: "400px" }}
-          ></img>
-          <figcaption
-            style={{ fontStyle: "italic", fontSize: "15px", marginLeft: 40 }}
-          >
+      <div className="multiimage-container">
+        <div className="image-container">
+          <img src={chart3}></img>
+          <figcaption>
             Fig. 3. Trayectorias que sigue el sistema en el espacio de fases a
             lo largo del tiempo, partiendo de distintos puntos
           </figcaption>
         </div>
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <img
-            src={chart4}
-            style={{ maxWidth: "400px", maxHeight: "400px" }}
-          ></img>
-          <figcaption
-            style={{ fontStyle: "italic", fontSize: "15px", marginLeft: 40 }}
-          >
+        <div className="image-container">
+          <img src={chart4}></img>
+          <figcaption>
             Fig. 4. Trayectorias que sigue el sistema en el espacio de fases a
             lo largo del tiempo, partiendo de distintos puntos
           </figcaption>
@@ -211,30 +184,17 @@ const Content = () => {
         representen sólo las variables {latexInline("x")} e {latexInline("y")},
         dado que nos permite extraer prácticamente la misma información.
       </p>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          marginBottom: 50,
-          marginTop: 40,
-        }}
-      >
-        <img
-          src={chart5}
-          style={{ maxWidth: "400px", maxHeight: "400px" }}
-        ></img>
-        <figcaption style={{ fontStyle: "italic", fontSize: "15px" }}>
-          Fig. 5. Espacio de fases
-        </figcaption>
+      <div className="image-container">
+        <img src={chart5}></img>
+        <figcaption>Fig. 5. Espacio de fases</figcaption>
       </div>
       <p>
         Vemos que efectivamente, el comportamiento observado corresponde al
         mismo de la Fig. 3, donde las trayectorias se acercan en forma
         espiralada al {latexInline("(0,0)")}. Decimos que este tipo de gráficos
         representa el espacio de fases, concepto que veremos a continuación.
-      </p> */}
-      {/* <h2>Algunos conceptos claves</h2>
+      </p>
+      <h2>Algunos conceptos claves</h2>
       <p>
         Hemos estado hablando, entre otras cosoas, de trayectorias, espacios de
         fases y puntos que tienen una influencia particular en el sistema. Antes
@@ -281,28 +241,15 @@ const Content = () => {
           </li>
         </ul>
       </p>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          marginBottom: 50,
-          marginTop: 40,
-        }}
-      >
-        <img
-          src={chart6}
-          style={{ maxWidth: "600px", maxHeight: "600px" }}
-        ></img>
-        <figcaption
-          style={{ fontStyle: "italic", fontSize: "15px", maxWidth: "600px" }}
-        >
+      <div className="monoimage-container">
+        <img src={chart6}></img>
+        <figcaption>
           Fig. 6. Puntos fijos y sus efectos sobre el sistema. En el primer
           diagrama se puede ver un punto fijo atractor, en el segundo dos puntos
           atractores y siete repulsores, y en el tercero un ciclo límite.
         </figcaption>
       </div>
-      {/* <h2>Clasificación</h2>
+      <h2>Clasificación</h2>
       <p>
         Ahora bien ¿Son todos los sistemas dinámicos iguales a los dos ejemplos
         que vimos? ¿Qué tipos de sistemas dinámicos existen? Respondiendo a esta
@@ -507,63 +454,31 @@ const Content = () => {
               "Introduction to the Modeling and Analysis of Complex Systems",
               Hiroki Sayama
             </i>
-            .
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                marginBottom: 50,
-                marginTop: 40,
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  marginBottom: 50,
-                }}
-              >
-                <img
-                  src={chart7}
-                  style={{ maxWidth: "600px", maxHeight: "600px" }}
-                ></img>
-                <figcaption
-                  style={{
-                    fontStyle: "italic",
-                    fontSize: "15px",
-                    marginLeft: 40,
-                  }}
-                >
-                  Fig. 7. Análisis de estabilidad de puntos fijos para sistemas
-                  de tiempo discreto.
-                </figcaption>
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                }}
-              >
-                <img
-                  src={chart8}
-                  style={{ maxWidth: "600px", maxHeight: "600px" }}
-                ></img>
-                <figcaption
-                  style={{
-                    fontStyle: "italic",
-                    fontSize: "15px",
-                    marginLeft: 40,
-                  }}
-                >
-                  Fig. 8. Análisis de estabilidad de puntos fijos para sistemas
-                  de tiempo continuo.
-                </figcaption>
-              </div>
-            </div>
           </li>
         </ol>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            marginBottom: 50,
+            marginTop: 40,
+          }}
+        >
+          <div className="monoimage-container">
+            <img src={chart7}></img>
+            <figcaption>
+              Fig. 7. Análisis de estabilidad de puntos fijos para sistemas de
+              tiempo discreto.
+            </figcaption>
+          </div>
+          <div className="monoimage-container">
+            <img src={chart8}></img>
+            <figcaption>
+              Fig. 8. Análisis de estabilidad de puntos fijos para sistemas de
+              tiempo continuo.
+            </figcaption>
+          </div>
+        </div>
         <h4>En sistemas lineales</h4>
         Continuamos con el sistema lineal utilizado previamente (el mismo de
         tiempo discreto).
@@ -583,27 +498,9 @@ const Content = () => {
         <br />
         <br />
         Comprobémoslo.
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            marginBottom: 50,
-            marginTop: 40,
-          }}
-        >
-          <img
-            src={chart9}
-            style={{ maxWidth: "500px", maxHeight: "500px" }}
-          ></img>
-          <figcaption
-            style={{
-              fontStyle: "italic",
-              fontSize: "15px",
-              maxWidth: "500px",
-              marginLeft: 50,
-            }}
-          >
+        <div className="monoimage-container">
+          <img src={chart9}></img>
+          <figcaption>
             Fig. 9. Trayectorias elípticas que sigue el sistema en el espacio de
             fases en regiones cercanas al punto fijo encontrado.
           </figcaption>
@@ -656,34 +553,16 @@ const Content = () => {
           </li>
         </ul>
         Comprobemos esto resultados graficando el espacio de fases
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            marginBottom: 50,
-            marginTop: 40,
-          }}
-        >
-          <img
-            src={chart10}
-            style={{ maxWidth: "500px", maxHeight: "500px" }}
-          ></img>
-          <figcaption
-            style={{
-              fontStyle: "italic",
-              fontSize: "15px",
-              maxWidth: "500px",
-              marginLeft: 50,
-            }}
-          >
+        <div className="monoimage-container">
+          <img src={chart10}></img>
+          <figcaption>
             Fig. 10. Trayectorias que sigue el modelo de Lotka-Volterra. El
             (0,0) es un punto silla, que atrae en el eje vertical y repele en el
             horizontal. El (1,1) es un punto estable de Lyapunov, que genera un
             ciclo límite.
           </figcaption>
         </div>
-      </p> */}
+      </p>
     </div>
   );
 };
