@@ -1,28 +1,12 @@
-@import url("non.geist/font-faces/Geist-Black.css");
-@import url("non.geist/font-faces/Geist-Bold.css");
-@import url("non.geist/font-faces/Geist-Light.css");
-@import url("non.geist/font-faces/Geist-Medium.css");
 @import url("non.geist/font-faces/Geist-Regular.css");
 @import url("non.geist/font-faces/Geist-SemiBold.css");
-@import url("non.geist/font-faces/Geist-Thin.css");
-@import url("non.geist/font-faces/Geist-UltraBlack.css");
-@import url("non.geist/font-faces/Geist-UltraLight.css");
-
-@import url("non.geist/font-faces/GeistMono-SemiBold.css");
 
 .postContainer {
   background-color: rgb(255, 255, 255);
   margin-left: 250px;
   margin-right: 20%;
-  margin-top: 80px;
-  /* width: auto; */
   width: 780px;
   padding: 3%;
-}
-
-.prueba {
-  color: blue;
-  background-color: transparent;
 }
 
 .upper-title {
@@ -33,6 +17,15 @@
   color: #a1a1aa;
 }
 
+.main-title {
+  margin-left: 5%;
+  font-size: 4em;
+}
+
+.intro {
+  color: #797979;
+}
+
 h1 {
   font-family: "Geist-SemiBold";
   margin-top: 0px;
@@ -40,15 +33,22 @@ h1 {
   font-size: 3em;
 }
 
-.main-title {
-  margin-left: 5%;
-  font-size: 4em;
-}
-
 h2,
 h3,
 h4 {
   font-family: "Geist-Regular";
+}
+
+h2 {
+  margin-top: 50px;
+}
+
+h3 {
+  margin-top: 40px;
+}
+
+h4 {
+  margin-top: 30px;
 }
 
 p {
@@ -66,8 +66,6 @@ li {
 .multiimage-container {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 50;
-  margin-top: 40;
 }
 
 .image-container {
@@ -75,16 +73,12 @@ li {
   flex-direction: column;
   align-items: center;
   margin-bottom: 30px;
+  margin-top: 30px;
 }
 
 .image-container img {
   max-width: 400px;
   max-height: 400px;
-}
-
-figcaption {
-    font-family:'Times New Roman', Times, serif;
-    margin-left: 30px;
 }
 
 .image-container figcaption {
@@ -93,11 +87,13 @@ figcaption {
   max-width: 400px;
 }
 
-.monoimage-container {
+.monoimage-container,
+.monoimage-container-small {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 30px;
+  margin-top: 30px;
 }
 
 .monoimage-container img {
@@ -105,10 +101,21 @@ figcaption {
   max-height: 600px;
 }
 
-.monoimage-container figcaption {
+.monoimage-container-small img {
+    max-width: 500px;
+    max-height: 500px;
+  }
+
+.monoimage-container figcaption,
+.monoimage-container-small figcaption {
   font-style: italic;
   font-size: 15px;
   max-width: 600px;
+}
+
+figcaption {
+  font-family: "Times New Roman", Times, serif;
+  margin-left: 30px;
 }
 
 @media (min-width: 996px) and (max-width: 1115px) {
@@ -124,15 +131,15 @@ figcaption {
 }
 
 @media (min-width: 821px) and (max-width: 995px) {
-    .postContainer {
-      background-color: rgb(255, 255, 255);
-      margin-left: 0%;
-      margin-right: 0%;
-      margin-top: 80px;
-      width: auto;
-      padding: 3%;
-    }
+  .postContainer {
+    background-color: rgb(255, 255, 255);
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top: 80px;
+    width: auto;
+    padding: 3%;
   }
+}
 
 @media (max-width: 820px) {
   .postContainer {
@@ -161,7 +168,6 @@ figcaption {
     font-size: 15px;
     max-width: 300px;
     margin-left: 0px;
-
   }
 
   .monoimage-container img {

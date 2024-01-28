@@ -30,7 +30,7 @@ const Content = () => {
         <h1 className="main-title">Sistemas Dinámicos</h1>
       </div>
 
-      <p>
+      <p className="intro">
         ¿Alguna vez te preguntaste cómo evoluciona el crecimiento de una
         población, el impacto de una epidemia, o incluso el flujo de agua que
         sale de una canilla? Todos estos eventos, y muchos más, pueden
@@ -49,7 +49,7 @@ const Content = () => {
         que significa que evoluciona con el tiempo, cambiando de estado a medida
         que las variables que lo componen toman diferentes valores.
       </p>
-      <h3>Modelo crecimiento poblacional simple</h3>
+      <h3>Modelo de crecimiento poblacional simple</h3>
       <p>
         Veamos un ejemplo de un sistema dinámico que modela de forma muy simple
         el crecimiento poblacional. En este caso, la población en un instante de
@@ -261,6 +261,7 @@ const Content = () => {
           atractores y siete repulsores, y en el tercero un ciclo límite.
         </figcaption>
       </div>
+
       <h2>Clasificación</h2>
       <p>
         Ahora bien ¿Son todos los sistemas dinámicos iguales a los dos ejemplos
@@ -514,11 +515,12 @@ const Content = () => {
         <br />
         <br />
         Por lo tanto, el comportamiento del punto fijo se trata de un ciclo
-        limite pudiendo observar trayectorias elípticas alrededor del punto fijo.
+        limite pudiendo observar trayectorias elípticas alrededor del punto
+        fijo.
         <br />
         <br />
         Comprobémoslo.
-        <div className="monoimage-container">
+        <div className="monoimage-container-small">
           <img src={chart9}></img>
           <figcaption>
             Fig. 9. Trayectorias elípticas que sigue el sistema en el espacio de
@@ -546,7 +548,6 @@ const Content = () => {
           <li>
             <b>Punto fijo {latexInline("(0,0)")}</b>
             <BlockMath math="J_f = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} "></BlockMath>
-
             Autovalores: {latexInline("\\lambda_1 = 1")} &nbsp;&nbsp; y
             &nbsp;&nbsp;
             {latexInline("\\lambda_2 = -1")}
@@ -556,11 +557,10 @@ const Content = () => {
             &nbsp;&nbsp; {latexInline("Re(\\lambda_2) = -1")}.
             <br />
             <br />
-            Es decir,{" "}
-            {latexInline("Re(\\lambda_1)>0")} &nbsp;&nbsp; y &nbsp;&nbsp;{" "}
-            {latexInline("Re(\\lambda_2)<0")}, por lo que se trata de un punto
-            fijo inestable de tipo <i>silla (Saddle point)</i>. Esto significa
-            que atrae en una dirección pero repele en otra.
+            Es decir, {latexInline("Re(\\lambda_1)>0")} &nbsp;&nbsp; y
+            &nbsp;&nbsp; {latexInline("Re(\\lambda_2)<0")}, por lo que se trata
+            de un punto fijo inestable de tipo <i>silla (Saddle point)</i>. Esto
+            significa que atrae en una dirección pero repele en otra.
           </li>
           <br />
           <li>
@@ -575,16 +575,15 @@ const Content = () => {
             &nbsp;&nbsp; {latexInline("Re(\\lambda_2) = 0")}.
             <br />
             <br />
-            Es decir,{" "}
-            {latexInline("Re(\\lambda_1)>0")} &nbsp;&nbsp; y &nbsp;&nbsp;{" "}
-            {latexInline("Re(\\lambda_2)<0")}, por lo que se trata de un punto
-            fijo estable de tipo <i>Lyapunov</i>. Esto significa que se genera
-            un ciclo limite donde el sistema orbita alrededor del punto en sus
-            inmediaciones.
+            Es decir, {latexInline("Re(\\lambda_1)>0")} &nbsp;&nbsp; y
+            &nbsp;&nbsp; {latexInline("Re(\\lambda_2)<0")}, por lo que se trata
+            de un punto fijo estable de tipo <i>Lyapunov</i>. Esto significa que
+            se genera un ciclo limite donde el sistema orbita alrededor del
+            punto en sus inmediaciones.
           </li>
         </ul>
         Comprobemos esto resultados graficando el espacio de fases
-        <div className="monoimage-container">
+        <div className="monoimage-container-small">
           <img src={chart10}></img>
           <figcaption>
             Fig. 10. Trayectorias que sigue el modelo de Lotka-Volterra. El
