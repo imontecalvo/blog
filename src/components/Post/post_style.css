@@ -82,6 +82,11 @@ li {
   max-height: 400px;
 }
 
+figcaption {
+    font-family:'Times New Roman', Times, serif;
+    margin-left: 30px;
+}
+
 .image-container figcaption {
   font-style: italic;
   font-size: 15px;
@@ -155,6 +160,8 @@ li {
     font-style: italic;
     font-size: 15px;
     max-width: 300px;
+    margin-left: 0px;
+
   }
 
   .monoimage-container img {

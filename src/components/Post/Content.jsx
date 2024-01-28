@@ -63,9 +63,9 @@ const Content = () => {
         Una vez fijado un valor de {latexInline("k")}, vemos que el sistema
         puede evolucionar de distintas maneras según las condiciones iniciales
         de las que parta. En este caso, la condición inicial es{" "}
-        {latexInline("x_1")} que es el valor que toma {latexInline("x_t")} para
-        el primer instante de tiempo ({latexInline("t=1")}). Luego el sistema
-        irá evolucionando y generando una trayectoria, tal como lo vemos a
+        {latexInline("x_0")} que es el valor que toma {latexInline("x_t")} para
+        el primer instante de tiempo {latexInline("t=0")}. Luego el sistema irá
+        evolucionando y generando una trayectoria, tal como lo vemos a
         continuacion.
       </p>
       <div className="multiimage-container">
@@ -90,9 +90,12 @@ const Content = () => {
         Además, como se puede ver en los gráficos anteriores, dependiendo del
         valor que tome el factor {latexInline("k")}, el comportamiento será
         distinto. Para este caso particular, cuando {latexInline("k>0")} el
-        sistema diverge, es decir tiende al infinito. Por otro lado, cuando{" "}
-        {latexInline("k<0")} el sistema converge a {latexInline("x=0")}, esto lo
-        veremos más adelante con el nombre de punto fijo.
+        sistema diverge, lo cual tiene sentido, pues la población crece
+        indefinidamente tendiendo al infinito. Por otro lado, cuando{" "}
+        {latexInline("k<0")} la población decrece constantemente en cada
+        instante de tiempo, de manera que el sistema converge a{" "}
+        {latexInline("x=0")}, esto lo veremos más adelante con el nombre de
+        punto fijo.
       </p>
       <p>
         Como este sistema es muy simple, el comportamiento es similar para todos
@@ -123,7 +126,7 @@ const Content = () => {
       <p>
         Con &nbsp;&nbsp;&nbsp;{latexInline("a=0.1")}
         {","}&nbsp;&nbsp;&nbsp;
-        {latexInline("b=-3")}
+        {latexInline("b=0.3")}
         {", "}&nbsp;&nbsp;&nbsp;
         {latexInline("c=-1")}
         {", "}&nbsp;&nbsp;&nbsp;
@@ -135,11 +138,13 @@ const Content = () => {
         largo del tiempo de acuerdo al comportamiento determinado por sus
         respectivas ecuaciones. En este caso, para ver la evolución de cada
         trayectoria a lo largo del tiempo necesitamos un gráfico en 3
-        dimensiones {latexInline("(x,y,t)")}. A continuación, se encuentra dicha
-        representación de forma interactiva, donde el eje vertical Z determina
-        el paso del tiempo, mientras que el plano horizontal X,Y representa el
-        estado del sistema, es decir, los valores de las variables{" "}
-        {latexInline("x")} e {latexInline("y")}.
+        dimensiones {latexInline("(x,y,t)")}.
+        <br />
+        <br />A continuación, se encuentra dicha representación de forma
+        interactiva, donde el eje vertical Z representa el paso del tiempo,
+        mientras que el plano horizontal X,Y representa el estado del sistema,
+        es decir, los valores de las variables {latexInline("x")} e{" "}
+        {latexInline("y")}.
       </p>
 
       <div style={{ display: "flex", justifyContent: "center" }}>
@@ -171,13 +176,13 @@ const Content = () => {
         De alguna manera, este punto está actuando de atractor, tal que el
         sistema siempre caerá en este punto. Pero… ¿Qué hace especial a este
         punto? ¿Por qué el sistema termina siempre acercándose? ¿Pueden haber
-        más puntos cómo este? Éstas y otros interrogantes serán respondidos en
-        la próxima sección.
+        más puntos cómo este? Éstas y otros interrogantes serán abordados en la
+        próxima sección.
       </p>
       <p>
         Sin embargo, antes, veamos una cosa más. Evidentemente, si queremos ver
         el valor que toma las variables {latexInline("x")} e {latexInline("y")}{" "}
-        en cada instante de tiempo {latexInline("t")}, necesitamos un gráfico en
+        en cada instante de tiempo {latexInline("t")} necesitamos un gráfico en
         3 dimensiones. Pero usualmente, alcanza con conocer las trayectorias que
         puede seguir el sistema, sin prestarle atención al instante del tiempo.
         En este caso, alcanza con un gráfico de dos dimensiones, donde se
@@ -186,7 +191,9 @@ const Content = () => {
       </p>
       <div className="image-container">
         <img src={chart5}></img>
-        <figcaption>Fig. 5. Espacio de fases</figcaption>
+        <figcaption>
+          Fig. 5. Trayectorias dibujadas sobre el espacio de fases del sistema
+        </figcaption>
       </div>
       <p>
         Vemos que efectivamente, el comportamiento observado corresponde al
@@ -196,7 +203,7 @@ const Content = () => {
       </p>
       <h2>Algunos conceptos claves</h2>
       <p>
-        Hemos estado hablando, entre otras cosoas, de trayectorias, espacios de
+        Hemos estado hablando, entre otras cosas, de trayectorias, espacios de
         fases y puntos que tienen una influencia particular en el sistema. Antes
         de continuar, es hora fijar estos conceptos.
       </p>
@@ -215,12 +222,12 @@ const Content = () => {
         adquiere el sistema de forma sencilla y rápida.
       </p>
       <p>
-        Por último, nos queda pendiente hablar de aquel punto particular, el
-        {latexInline("(0,0)")}. ¿Qué tiene de especial? Bueno, existen puntos en
-        los que, si el sistema llegar a caer en los mismos, quedará atrapado en
-        los mismos sin poder escapar. Estos puntos reciben el nombre de{" "}
+        Por último, nos queda pendiente hablar de aquel punto particular, el{" "}
+        {latexInline(" (0,0)")}. ¿Qué tiene de especial? Bueno, existen puntos
+        en los que, si el sistema llegar a caer en los mismos, permanecerá
+        atrapado allí. Estos puntos reciben el nombre de{" "}
         <b>puntos fijos o puntos de equilibrio</b>, dado que si el sistema cae
-        en estos puntos, permanecerá en el mismo estado.
+        en estos puntos, se mantendrá en el mismo estado.
       </p>
       <p>
         Los puntos fijos pueden ejercer diferentes influencias sobre el sistema.
@@ -230,10 +237,15 @@ const Content = () => {
             <u>Atracción</u>: El sistema tiende a evolucionar hacia estos
             puntos, son atractores. Es el caso de nuestro ejemplo, donde el
             sistema evolucionaba hacia el {latexInline("(0,0)")}.
+            <br />
+            Se consideran puntos estables debido a que si producimos una pequeña
+            perturbación alejándonos de estos puntos, el sistema volverá hacia
+            los mismos.
           </li>
           <li>
             <u>Repulsión</u>: El sistema tiende a evolucionar alejándose de
-            estos puntos, son repulsores.
+            estos puntos, son repulsores. Por dicho motivo, estos puntos fijos
+            se consideran inestables.
           </li>
           <li>
             <u>Ciclo límite</u>: No atraen ni repulsan al sistema, pero lo
@@ -254,7 +266,7 @@ const Content = () => {
         Ahora bien ¿Son todos los sistemas dinámicos iguales a los dos ejemplos
         que vimos? ¿Qué tipos de sistemas dinámicos existen? Respondiendo a esta
         pregunta, podemos decir que a grandes rasgos, existen dos criterios
-        principales para clasificar nuestros sistemas dinámicos
+        principales para clasificar a los sistemas dinámicos
         <ul>
           <li>
             <b>Según la temporalidad</b>
@@ -263,7 +275,7 @@ const Content = () => {
                 <u>Tiempo dicreto</u>: El transcurso del tiempo sucede de manera
                 discreta, es decir, de a saltos. A su vez, el comportamiento del
                 sistema se determina a partir de ecuaciones de recurrencia.
-                <BlockMath math="x_t = F(x_t, t)" />
+                <BlockMath math="x_t = F(x_{t-1}, t)" />
                 Los dos ejemplos que vimos, efectivamente, son de tiempo
                 discreto.
               </li>
@@ -280,8 +292,8 @@ const Content = () => {
             <ul>
               <li>
                 <u>Lineales</u>: Tal como el nombre lo indica, el comportamiento
-                queda definido por ecuaciones lineales. A lo sumo, tienen un
-                único punto fijo
+                queda definido por ecuaciones lineales. Además, a lo sumo tienen
+                un único punto fijo.
                 <br />
                 Los dos ejemplos vistos, también son lineales y de hecho
                 presentan un único punto fijo.
@@ -294,7 +306,7 @@ const Content = () => {
           </li>
         </ul>
       </p>
-      <h2>Comportamiento</h2>
+      <h2>Análisis del comportamiento</h2>
       <p>
         Ya tenemos una idea más clara de qué es un sistema dinámico y los
         distintos tipos que existen. Sin embargo, dado un sistema ¿Cómo podemos
@@ -319,29 +331,33 @@ const Content = () => {
       <p>
         Habiamos dicho que los puntos fijos son aquellos puntos en los que una
         vez que el sistema cae en los mismos, no puede salir. En otras palabras,
-        si en el instance de tiempo t el sistema se encuentra en un estado X (y
-        X es un punto fijo), entonces, en el estado de tiempo{" "}
-        {latexInline("t+1")} el sistema permanecerá en X.
+        si en el instance de tiempo {latexInline("t")} el sistema se encuentra
+        en un estado X (siendo X un punto fijo), entonces, en el estado de
+        tiempo {latexInline("t+1")} el sistema permanecerá en X.
       </p>
       <p>
         Para detectar puntos fijos, simplemente debemos resolver el sistema de
-        ecuaciones que define el comportamiento del sistema teniendo en cuenta
-        que
+        ecuaciones que define el comportamiento del sistema dinámico teniendo en
+        cuenta que
       </p>
       <BlockMath math="x_t = x_{t-1}" />
       <br />
       <p>A continuación un ejemplo:</p>
-      <BlockMath math="x_t = 0.5·x_{t-1} + y_{t-1} + 0.25" />
-      <BlockMath math="y_t = -0.5·x_{t-1} + y_{t-1} + 0.75" />
+      <BlockMath math="x_t = 0.5·x_{t-1} + y_{t-1}·0.25" />
+      <BlockMath math="y_t = -0.5·x_{t-1} + y_{t-1}·0.75" />
       <p>
         Primero, reescribimos el sistema de educaciones tal que se cumpla{" "}
         {latexInline("X_t=X_{t-1}")}
       </p>
-      <BlockMath math="x_t = 0.5·x_t + y_t + 0.25" />
-      <BlockMath math="y_t = -0.5·x_t + y_t + 0.75" />
-      <p>Luego resolvemos el sistema, que da por resultado:</p>
+      <BlockMath math="x_t = 0.5·x_t + y_t·0.25" />
+      <BlockMath math="y_t = -0.5·x_t + y_t·0.75" />
+      <p>Luego resolvemos el sistema, obteniendo como resultado:</p>
       <BlockMath math="x_t = 1.5" />
       <BlockMath math="y_t = 0.5" />
+      <p>
+        Entonces, existe un punto fijo y el mismo se encuentra en{" "}
+        {latexInline("(1.5,0.5)")}
+      </p>
       <h4>En sistemas de tiempo continuo</h4>
       <p>
         Por otro lado, en sistemas de tiempo continuo, como está expresado a
@@ -356,8 +372,9 @@ const Content = () => {
       <p> Siendo X las variables del sistema.</p>
       <br />
       <p>
-        A continuación un ejemplo. Se trata del modelo Predador-Presa de
-        Lotka-Volterra y está definido por las siguientes ecuaciones:
+        A continuación un ejemplo. Se trata del modelo{" "}
+        <i>Predador-Presa de Lotka-Volterra</i> y está definido por las
+        siguientes ecuaciones:
       </p>
       <BlockMath math="\frac{dx}{dt} = x - xy" />
       <BlockMath math="\frac{dy}{dt} = -y + xy" />
@@ -389,12 +406,13 @@ const Content = () => {
         Notar que este sistema tiene dos puntos fijos: {latexInline("(0,0)")} y{" "}
         {latexInline("(1,1)")} ya que no es lineal.
       </p>
-      <h3>Efecto de puntos fijos</h3>
+      <h3>Estabilidad de puntos fijos</h3>
       <p>
         Ya sabemos calcular cuáles son los puntos fijos de nuestro sistema,
-        ahora veremos cómo es posible analizar el efecto o influencia de los
-        mismos sobre el comportamiento que adquiere el sistema. Dependiendo si
-        el sistema es lineal o no, el proceso difiere ligeramente.
+        ahora veremos cómo es posible analizar el efecto de los mismos sobre el
+        comportamiento que adquiere el sistema, es decir, su estabilidad.
+        Dependiendo si el sistema es lineal o no, el proceso difiere
+        ligeramente.
         <br />
         <br />
         Los pasos a seguir son:
@@ -407,8 +425,8 @@ const Content = () => {
               </li>
               <li>
                 <b>No lineales</b>: No podemos representar al sistema de
-                ecuaciones mediante una matriz dado que no son lineales. Lo se
-                debe hacer es obtener la matriz jacobiana. Esto implica que
+                ecuaciones mediante una matriz dado que no son lineales. Lo que
+                se debe hacer es obtener la matriz jacobiana. Esto implica que
                 vamos a obtener una aproximación lineal alrededor de cada punto
                 fijo. Esta es la gran diferencia ya que con sistemas lineales
                 esto no es necesario, luego el procedimiento es el mismo.
@@ -433,7 +451,7 @@ const Content = () => {
 
           <li>
             Si nuestro sistema es de tiempo discreto, nos quedamos con el modulo
-            del autovalor. Si es de tiempo discreto, nos quedamos con la parte
+            del autovalor. Si es de tiempo continuo, nos quedamos con la parte
             real del autovalor.
           </li>
 
@@ -482,10 +500,12 @@ const Content = () => {
         <h4>En sistemas lineales</h4>
         Continuamos con el sistema lineal utilizado previamente (el mismo de
         tiempo discreto).
-        <BlockMath math="x_t = 0.5·x_{t-1} + y_{t-1} + 0.25" />
-        <BlockMath math="y_t = -0.5·x_{t-1} + y_{t-1} + 0.75" />
-        Cuyo punto fijo se encuentra en {latexInline("(1.5,0.5)")}. Primero
-        obtenemos la matriz del sistema.
+        <BlockMath math="x_t = 0.5·x_{t-1} + y_{t-1}·0.25" />
+        <BlockMath math="y_t = -0.5·x_{t-1} + y_{t-1}·0.75" />
+        Cuyo punto fijo se encuentra en {latexInline("(1.5,0.5)")}.
+        <br />
+        <br />
+        Primero obtenemos la matriz del sistema.
         <BlockMath math="A = \begin{bmatrix} 0.5 & 1 \\ -0.5 & 1 \end{bmatrix} "></BlockMath>
         Los autovalores de esta matriz son:
         <BlockMath math="\lambda_1 = \frac{3}{4} + \frac{\sqrt{7}}{4}i"></BlockMath>
@@ -494,7 +514,7 @@ const Content = () => {
         <br />
         <br />
         Por lo tanto, el comportamiento del punto fijo se trata de un ciclo
-        limite pudiendo observar trayectorias ovaladas alrededor del punto fijo.
+        limite pudiendo observar trayectorias elípticas alrededor del punto fijo.
         <br />
         <br />
         Comprobémoslo.
@@ -506,7 +526,7 @@ const Content = () => {
           </figcaption>
         </div>
         <h4>En sistemas no lineales</h4>
-        Continuamos con el sistema no lineal de Lotka-Volterra, utilizado
+        Continuamos con el sistema no lineal de <i>Lotka-Volterra</i>, utilizado
         previamente en la detección de puntos fijos para sistemas de tiempo
         continuo.
         <BlockMath math="\frac{dx}{dt} = x - xy" />
@@ -516,7 +536,7 @@ const Content = () => {
         <br />
         <br />
         Lo primero que debemos hacer es obtener la matriz jacobiana. Para esto,
-        derivamos cada ecuación respecto de cada variable.
+        derivamos cada función respecto de cada variable.
         <BlockMath math="J_f = \begin{bmatrix} 1 - y & -x \\ y & -1+x \end{bmatrix} "></BlockMath>
         Luego, hay que evaluar la matriz jacobiana en cada uno de los puntos
         fijos. Para cada matriz obtenida, obtener autovalores y realizar el
@@ -526,11 +546,17 @@ const Content = () => {
           <li>
             <b>Punto fijo {latexInline("(0,0)")}</b>
             <BlockMath math="J_f = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} "></BlockMath>
+
             Autovalores: {latexInline("\\lambda_1 = 1")} &nbsp;&nbsp; y
             &nbsp;&nbsp;
             {latexInline("\\lambda_2 = -1")}
+            <br />
+            <br />
             Tenemos que {latexInline("Re(\\lambda_1) = 1")} &nbsp;&nbsp; y
-            &nbsp;&nbsp; {latexInline("Re(\\lambda_2) = -1")}. Es decir,{" "}
+            &nbsp;&nbsp; {latexInline("Re(\\lambda_2) = -1")}.
+            <br />
+            <br />
+            Es decir,{" "}
             {latexInline("Re(\\lambda_1)>0")} &nbsp;&nbsp; y &nbsp;&nbsp;{" "}
             {latexInline("Re(\\lambda_2)<0")}, por lo que se trata de un punto
             fijo inestable de tipo <i>silla (Saddle point)</i>. Esto significa
@@ -543,8 +569,13 @@ const Content = () => {
             Autovalores: {latexInline("\\lambda_1 = i")} &nbsp;&nbsp; y
             &nbsp;&nbsp;
             {latexInline("\\lambda_2 = -i")}
+            <br />
+            <br />
             Tenemos que {latexInline("Re(\\lambda_1) = 0")} &nbsp;&nbsp; y
-            &nbsp;&nbsp; {latexInline("Re(\\lambda_2) = 0")}. Es decir,{" "}
+            &nbsp;&nbsp; {latexInline("Re(\\lambda_2) = 0")}.
+            <br />
+            <br />
+            Es decir,{" "}
             {latexInline("Re(\\lambda_1)>0")} &nbsp;&nbsp; y &nbsp;&nbsp;{" "}
             {latexInline("Re(\\lambda_2)<0")}, por lo que se trata de un punto
             fijo estable de tipo <i>Lyapunov</i>. Esto significa que se genera
