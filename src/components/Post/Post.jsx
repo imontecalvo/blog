@@ -4,7 +4,7 @@ import Index from "./Index/Index";
 import { useEffect, useState } from "react";
 
 const Post = () => {
-  const darkMode = !true;
+  const darkMode = !!true;
   const [headings, setHeadings] = useState([]);
 
   useEffect(() => {

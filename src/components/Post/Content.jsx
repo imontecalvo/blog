@@ -31,7 +31,7 @@ const Content = () => {
     return <InlineMath math={text} />;
   };
 
-  const darkMode = !true
+  const darkMode = !!true
   var sd1 = SDEjemplo1(darkMode?"white":"#09090b");
 
   useEffect(() => {
@@ -56,7 +56,7 @@ const Content = () => {
         establecidas.
       </p>
 
-      <h2>¿Qué es un sistema dinámico?</h2>
+      <h2 id="section0">¿Qué es un sistema dinámico?</h2>
       <p>
         Comencemos por entender qué es exactamente un sistema dinámico. Se trata
         de un conjunto de partes (representadas por variables) que interactúan
@@ -65,7 +65,7 @@ const Content = () => {
         que significa que evoluciona con el tiempo, cambiando de estado a medida
         que las variables que lo componen toman diferentes valores.
       </p>
-      <h3>Modelo de crecimiento poblacional simple</h3>
+      <h3 id="section1">Modelo de crecimiento poblacional simple</h3>
       <p>
         Veamos un ejemplo de un sistema dinámico que modela de forma muy simple
         el crecimiento poblacional. En este caso, la población en un instante de
@@ -132,7 +132,7 @@ const Content = () => {
           <li>Oscilación alrededor de un punto</li>
         </ul>
       </p>
-      <h3>Sistema dinámico con dos variables</h3>
+      <h3 id="section2">Sistema dinámico con dos variables</h3>
       <p>
         Ahora analicemos el siguiente sistema, que si bien sigue siendo bastante
         simple, resulta un poco más interesante.
@@ -192,7 +192,7 @@ const Content = () => {
         De alguna manera, este punto está actuando de atractor, tal que el
         sistema siempre caerá en este punto. Pero… ¿Qué hace especial a este
         punto? ¿Por qué el sistema termina siempre acercándose? ¿Pueden haber
-        más puntos cómo este? Éstas y otros interrogantes serán abordados en la
+        más puntos cómo este? Éstos y otros interrogantes serán abordados en la
         próxima sección.
       </p>
       <p>
@@ -217,7 +217,7 @@ const Content = () => {
         espiralada al {latexInline("(0,0)")}. Decimos que este tipo de gráficos
         representa el espacio de fases, concepto que veremos a continuación.
       </p>
-      <h2>Algunos conceptos claves</h2>
+      <h2 id="section3">Algunos conceptos claves</h2>
       <p>
         Hemos estado hablando, entre otras cosas, de trayectorias, espacios de
         fases y puntos que tienen una influencia particular en el sistema. Antes
@@ -278,7 +278,7 @@ const Content = () => {
         </figcaption>
       </div>
 
-      <h2>Clasificación</h2>
+      <h2 id="section4">Clasificación</h2>
       <p>
         Ahora bien ¿Son todos los sistemas dinámicos iguales a los dos ejemplos
         que vimos? ¿Qué tipos de sistemas dinámicos existen? Respondiendo a esta
@@ -323,7 +323,7 @@ const Content = () => {
           </li>
         </ul>
       </p>
-      <h2>Análisis del comportamiento</h2>
+      <h2 id="section5">Análisis del comportamiento</h2>
       <p>
         Ya tenemos una idea más clara de qué es un sistema dinámico y los
         distintos tipos que existen. Sin embargo, dado un sistema ¿Cómo podemos
@@ -338,13 +338,13 @@ const Content = () => {
         sistema sea de tiempo continuo, éste quedará definido a partir de
         ecuaciones diferenciales que pueden ser complejas de resolver.
       </p>
-      <h3>Detección de puntos fijos</h3>
+      <h3 id="section6">Detección de puntos fijos</h3>
       <p>
         Empecemos por ver cómo calcular los puntos fijos. Dependiendo de si el
         sistema es de tiempo discreto o continuo, el método usado será
         diferente.
       </p>
-      <h4>En sistemas de tiempo discreto</h4>
+      <h4 id="section7">En sistemas de tiempo discreto</h4>
       <p>
         Habiamos dicho que los puntos fijos son aquellos puntos en los que una
         vez que el sistema cae en los mismos, no puede salir. En otras palabras,
@@ -375,7 +375,7 @@ const Content = () => {
         Entonces, existe un punto fijo y el mismo se encuentra en{" "}
         {latexInline("(1.5,0.5)")}
       </p>
-      <h4>En sistemas de tiempo continuo</h4>
+      <h4 id="section8">En sistemas de tiempo continuo</h4>
       <p>
         Por otro lado, en sistemas de tiempo continuo, como está expresado a
         partir de ecuaciones diferenciales, vamos a decir que la ausencia de
@@ -423,7 +423,7 @@ const Content = () => {
         Notar que este sistema tiene dos puntos fijos: {latexInline("(0,0)")} y{" "}
         {latexInline("(1,1)")} ya que no es lineal.
       </p>
-      <h3>Estabilidad de puntos fijos</h3>
+      <h3 id="section9">Estabilidad de puntos fijos</h3>
       <p>
         Ya sabemos calcular cuáles son los puntos fijos de nuestro sistema,
         ahora veremos cómo es posible analizar el efecto de los mismos sobre el
@@ -514,7 +514,7 @@ const Content = () => {
             </figcaption>
           </div>
         </div>
-        <h4>En sistemas lineales</h4>
+        <h4 id="section10">En sistemas lineales</h4>
         Continuamos con el sistema lineal utilizado previamente (el mismo de
         tiempo discreto).
         <BlockMath math="x_t = 0.5·x_{t-1} + y_{t-1}·0.25" />
@@ -543,7 +543,7 @@ const Content = () => {
             fases en regiones cercanas al punto fijo encontrado.
           </figcaption>
         </div>
-        <h4>En sistemas no lineales</h4>
+        <h4 id="section11">En sistemas no lineales</h4>
         Continuamos con el sistema no lineal de <i>Lotka-Volterra</i>, utilizado
         previamente en la detección de puntos fijos para sistemas de tiempo
         continuo.
