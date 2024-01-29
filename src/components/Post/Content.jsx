@@ -24,14 +24,19 @@ import chart10DM from "./imgs/chart10-dm.png";
 
 import SDEjemplo1 from "../SDEjemplo1";
 import Scene from "../3DScene/Scene";
+import { useEffect } from "react";
 
 const Content = () => {
   const latexInline = (text) => {
     return <InlineMath math={text} />;
   };
 
-  const sd1 = SDEjemplo1();
   const darkMode = !!true
+  var sd1 = SDEjemplo1(darkMode?"white":"#09090b");
+
+  useEffect(() => {
+    sd1 = SDEjemplo1(darkMode?"white":"#09090b");
+  },[darkMode]);
 
   return (
     <div className={darkMode ? "dark" : "light"}>
@@ -159,7 +164,7 @@ const Content = () => {
       </p>
 
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <Scene scene={sd1.scene} camera={sd1.camera} target={sd1.target} />
+        <Scene scene={sd1.scene} camera={sd1.camera} target={sd1.target}/>
       </div>
       <p>
         Si probamos posicionando la cámara en distintas direcciones, se puede

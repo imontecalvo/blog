@@ -1,6 +1,5 @@
 import * as THREE from "three";
 
-const COLOR =  0x000000;
 // const COLOR = 0xffd412
 
 function linspace(start, end, numPoints) {
@@ -8,7 +7,9 @@ function linspace(start, end, numPoints) {
   return Array.from({ length: numPoints }, (_, index) => start + index * step);
 }
 
-const SDEjemplo1 = () => {
+const SDEjemplo1 = (lineColor) => {
+  const COLOR = lineColor;
+
   function getInitCond() {
     const x = linspace(-5, 5, 15);
     const y = linspace(-5, 5, 15);

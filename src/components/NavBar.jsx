@@ -7,11 +7,15 @@ const NavBar = () => {
   const [visible, setVisible] = useState(true);
   const [theme, setTheme] = useState("light");
 
+  const [bgColor, setBgColor] = useState("rgba(240, 240, 240, 0.8)");
+
   const changeTheme = () => {
     if (theme === "light") {
       setTheme("dark");
+      setBgColor("rgba(9, 9, 11, 0.8)")
     } else {
       setTheme("light");
+      setBgColor("rgba(240, 240, 240, 0.8)")
     }
   };
 
@@ -39,7 +43,7 @@ const NavBar = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            backgroundColor: "rgba(240, 240, 240, 0.8)",
+            backgroundColor: bgColor,
             backdropFilter: "blur(2px)",
             zIndex: "1000",
             position: "fixed",
