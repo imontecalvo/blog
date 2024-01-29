@@ -1,0 +1,28 @@
+.index-container {
+    background-color: green;
+    margin-top: 80px;
+    position: fixed;
+    width: 270px;
+    padding: 10px;
+    margin-left: 10px;
+}
+
+.h2 {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.h3 {
+    margin-left: 15px;
+    /* background-color: rgb(164, 140, 185); */
+    /* padding-right: 10px; */
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.h4 {
+    margin-left: 30px;
+    /* background-color: rgb(164, 140, 185); */
+    /* padding-right: 10px; */
+    margin-bottom: 5px;
+}

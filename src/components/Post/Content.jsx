@@ -40,7 +40,7 @@ const Content = () => {
 
   return (
     <div className={darkMode ? "dark" : "light"}>
-      <h2 className="upper-title">Entre equilibrios y transformaciones:</h2>
+      <p className="upper-title">Entre equilibrios y transformaciones:</p>
       <div style={{ marginBottom: "30px" }}>
         <h1>Descubriendo los </h1>
         <h1 className="main-title">Sistemas Dinámicos</h1>

@@ -30,7 +30,10 @@
   font-weight: 500;
   font-style: oblique;
   margin-bottom: 10px;
+  font-size: x-large;
+  margin-top: 50px;
 }
+
 .dark .upper-title{
   color: #c9c9cc;
 }
@@ -77,12 +80,13 @@ h4 {
   margin-top: 30px;
 }
 
-p {
+p, a {
   font-family: "Geist-Regular";
   font-weight: 50;
   font-size: 0.9em;
-  margin-left: 2%;
-  margin-right: 2%;
+  /* margin-left: 2%; */
+  /* margin-right: 2%; */
+  text-decoration: none;
 }
 
 li {
