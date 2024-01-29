@@ -1,12 +1,27 @@
 @import url("non.geist/font-faces/Geist-Regular.css");
 @import url("non.geist/font-faces/Geist-SemiBold.css");
 
+.dark{
+  color:white;
+}
+
+.light{
+  color:black;
+}
+
 .postContainer {
-  background-color: rgb(255, 255, 255);
   margin-left: 250px;
   margin-right: 20%;
   width: 780px;
   padding: 3%;
+}
+
+.dark .postContainer{
+  background-color: #09090b;
+}
+
+.light .postContainer{
+  background-color: white;
 }
 
 .upper-title {
@@ -14,7 +29,13 @@
   font-weight: 500;
   font-style: oblique;
   margin-bottom: 10px;
-  color: #a1a1aa;
+}
+.dark .upper-title{
+  color: #c9c9cc;
+}
+
+.light .upper-title{
+  color: #a1a1aa;;
 }
 
 .main-title {
@@ -22,8 +43,12 @@
   font-size: 4em;
 }
 
-.intro {
+.light .intro {
   color: #797979;
+}
+
+.dark .intro {
+  color: #c5c1c1;
 }
 
 h1 {
@@ -95,6 +120,7 @@ li {
   margin-bottom: 30px;
   margin-top: 30px;
 }
+
 
 .monoimage-container img {
   max-width: 600px;
