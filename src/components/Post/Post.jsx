@@ -2,7 +2,7 @@ import "./post_style.css";
 import Content from "./Content";
 
 const Post = () => {
-  const darkMode = !!true;
+  const darkMode = !true;
   return (
     <>
       <div className={darkMode ? "dark" : "light"}>

@@ -1,21 +1,27 @@
 import { useState, useEffect } from "react";
-import { Moon, Sun } from "lucide-react";
+import { Moon, Sun, MoonStar} from "lucide-react";
 // import { Button } from "@/components/ui/button"
 
 const NavBar = () => {
+  const DARK_COLOR = "rgba(9, 9, 11, 0.8)";
+  const LIGHT_COLOR = "rgba(240, 240, 240, 0.8)";
+
   const [prevScrollPos, setPrevScrollPos] = useState(window.scrollY);
   const [visible, setVisible] = useState(true);
   const [theme, setTheme] = useState("light");
 
-  const [bgColor, setBgColor] = useState("rgba(240, 240, 240, 0.8)");
+  const [bgColor, setBgColor] = useState(LIGHT_COLOR);
+  const [fgColor, setFgColor] = useState(DARK_COLOR);
 
   const changeTheme = () => {
     if (theme === "light") {
       setTheme("dark");
-      setBgColor("rgba(9, 9, 11, 0.8)")
+      setBgColor(DARK_COLOR)
+      setFgColor(LIGHT_COLOR)
     } else {
       setTheme("light");
-      setBgColor("rgba(240, 240, 240, 0.8)")
+      setBgColor(LIGHT_COLOR)
+      setFgColor(DARK_COLOR)
     }
   };
 
@@ -63,10 +69,12 @@ const NavBar = () => {
               border: "0px",
               display: "flex",
               alignItems: "center",
-              cursor: "pointer"
+              cursor: "pointer",
+              backgroundColor:"rgba(0,0,0,0)",
+              color: fgColor
             }}
           >
-            {theme === "light" ? <Moon size={24} /> : <Sun size={24} />}
+            {theme === "light" ? <MoonStar size={24}/> : <Sun size={24} />}
           </button>
         </div>
       ) : null}

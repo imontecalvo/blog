@@ -31,7 +31,7 @@ const Content = () => {
     return <InlineMath math={text} />;
   };
 
-  const darkMode = !!true
+  const darkMode = !true
   var sd1 = SDEjemplo1(darkMode?"white":"#09090b");
 
   useEffect(() => {
