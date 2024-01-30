@@ -4,7 +4,6 @@ import Index from "./Index/Index";
 import { useEffect, useState } from "react";
 
 const Post = () => {
-  const darkMode = !true;
   const [headings, setHeadings] = useState([]);
 
   useEffect(() => {
@@ -19,9 +18,9 @@ const Post = () => {
 
   return (
     <>
-      <div className={darkMode ? "dark" : "light"} style={{ display: "flex"}}>
+      <div style={{ display: "flex" }}>
         <Index headings={headings} />
-        <div className="postContainer">
+        <div className="post-container">
           <Content />
         </div>
       </div>

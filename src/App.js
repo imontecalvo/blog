@@ -3,14 +3,24 @@ import "./background.css";
 import Post from "./components/Post/Post.jsx";
 import NavBar from "./components/NavBar/NavBar.jsx";
 import "./App.css";
-
+import { useTheme } from "./ThemeProvider.jsx";
 
 function App() {
+  const { theme } = useTheme();
+
   return (
-    <div className="background-container">
-      <NavBar />
-      <Post />/
+    <div className={theme}>
+      <div className="background-container">
+        <NavBar />
+        <Post />
+      </div>
     </div>
+    // <div className={theme}>
+    //   <div className="background-container">
+    //     <NavBar />
+    //     <Post />/
+    //   </div>
+    // </div>
   );
 }
 

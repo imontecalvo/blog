@@ -107,7 +107,7 @@ const SDEjemplo1 = (lineColor) => {
   camera.lookAt(new THREE.Vector3(centerX, centerY, centerZ));
   const target = new THREE.Vector3(centerX, centerY, centerZ);
 
-  return { scene, camera, target };
+  return { scene, camera, target, lineColor};
 };
 
 export default SDEjemplo1;

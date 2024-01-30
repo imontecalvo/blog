@@ -1,12 +1,11 @@
 import "./index_style.css";
 
 const Index = ({ headings }) => {
-  const darkMode = !true;
+  const darkMode = !!true;
 
   const scrollToSection = (index) => {
     const sectionId = `section${index}`;
     const sectionElement = document.getElementById(sectionId);
-    console.log(sectionElement)
 
     if (sectionElement) {
       sectionElement.scrollIntoView({ behavior: "smooth" });
@@ -14,7 +13,7 @@ const Index = ({ headings }) => {
   };
 
   return (
-    <div className={darkMode ? "dark" : "light"}>
+    // <div className={darkMode ? "dark" : "light"}>
       <div className="index-container">
         {headings ? (
           <div>
@@ -34,7 +33,7 @@ const Index = ({ headings }) => {
           </div>
         ) : null}
       </div>
-    </div>
+    // </div>
   );
 };
 

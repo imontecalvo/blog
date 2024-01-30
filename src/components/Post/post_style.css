@@ -1,6 +1,8 @@
 @import url("non.geist/font-faces/Geist-Regular.css");
 @import url("non.geist/font-faces/Geist-SemiBold.css");
 
+
+
 .dark {
   color: white;
 }
@@ -9,17 +11,17 @@
   color: black;
 }
 
-.postContainer {
+.post-container {
   margin-left: calc(50% - 440px);
   width: 780px;
   padding: 50px;
 }
 
-.dark .postContainer {
+.dark .post-container {
   background-color: #09090b;
 }
 
-.light .postContainer {
+.light .post-container {
   background-color: white;
 }
 
@@ -61,12 +63,12 @@
   color: #c5c1c1;
 }
 
-h1 {
+/* h1 {
   font-family: "Geist-SemiBold";
   margin-top: 0px;
   margin-bottom: 0px;
   font-size: 3em;
-}
+} */
 
 h2,
 h3,
