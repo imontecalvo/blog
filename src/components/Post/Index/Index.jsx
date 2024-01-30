@@ -1,7 +1,7 @@
 import "./index_style.css";
 
 const Index = ({ headings }) => {
-  const darkMode = !!true;
+  const darkMode = !true;
 
   const scrollToSection = (index) => {
     const sectionId = `section${index}`;
