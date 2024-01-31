@@ -9,7 +9,8 @@ const Index = ({ headings }) => {
     const sectionElement = document.getElementById(sectionId);
 
     if (sectionElement) {
-      sectionElement.scrollIntoView({ behavior: "smooth" });
+      const pos = sectionElement.offsetTop - 80;
+      window.scroll({ behavior: "smooth", top: pos});
     }
   };
 
