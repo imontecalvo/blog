@@ -1,27 +1,6 @@
 import "katex/dist/katex.min.css";
 import { BlockMath, InlineMath } from "react-katex";
 import "./post_style.css";
-import chart1 from "./imgs/chart1.png";
-import chart2 from "./imgs/chart2.png";
-import chart3 from "./imgs/chart3.png";
-import chart4 from "./imgs/chart4.png";
-import chart5 from "./imgs/chart5.png";
-import chart6 from "./imgs/chart6.png";
-import chart7 from "./imgs/chart7.png";
-import chart8 from "./imgs/chart8.png";
-import chart9 from "./imgs/chart9.png";
-import chart10 from "./imgs/chart10.png";
-import chart1DM from "./imgs/chart1-dm.png";
-import chart2DM from "./imgs/chart2-dm.png";
-import chart3DM from "./imgs/chart3-dm.png";
-import chart4DM from "./imgs/chart4-dm.png";
-import chart5DM from "./imgs/chart5-dm.png";
-import chart6DM from "./imgs/chart6-dm.png";
-import chart7DM from "./imgs/chart7-dm.png";
-import chart8DM from "./imgs/chart8-dm.png";
-import chart9DM from "./imgs/chart9-dm.png";
-import chart10DM from "./imgs/chart10-dm.png";
-
 import SDEjemplo1 from "../SDEjemplo1";
 import ThreeJSScene from "../3DScene/Scene";
 import { useEffect, useState } from "react";
@@ -41,7 +20,6 @@ const Content = () => {
   useEffect(() => {
     setSd1(SDEjemplo1(theme === "dark" ? "white" : "#09090b"));
   }, [theme]);
-
 
   return (
     <div>
@@ -91,7 +69,10 @@ const Content = () => {
       </p>
       <div className="multiimage-container">
         <div className="image-container">
-          <img src={theme === "dark" ? chart1DM : chart1}></img>
+          <img
+            loading="lazy"
+            src={theme === "dark" ? "imgs/chart1-dm.png" : "imgs/chart1.png"}
+          ></img>
           <figcaption>
             Fig. 1. Trayectorias que sigue el sistema lo largo del tiempo cuando
             k=1.2 tal que la población crece exponencialmente tendiendo al
@@ -99,7 +80,10 @@ const Content = () => {
           </figcaption>
         </div>
         <div className="image-container">
-          <img src={theme === "dark" ? chart2DM : chart2}></img>
+          <img
+            loading="lazy"
+            src={theme === "dark" ? "imgs/chart2-dm.png" : "imgs/chart2.png"}
+          ></img>
           <figcaption>
             Fig. 2. Trayectorias que sigue el sistema lo largo del tiempo cuando
             k=0.8 tal que la población decrece exponencialmente convergiendo a
@@ -169,7 +153,11 @@ const Content = () => {
       </p>
 
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <ThreeJSScene scene={sd1.scene} camera={sd1.camera} target={sd1.target} />
+        <ThreeJSScene
+          scene={sd1.scene}
+          camera={sd1.camera}
+          target={sd1.target}
+        />
       </div>
       <p>
         Si probamos posicionando la cámara en distintas direcciones, se puede
@@ -179,14 +167,20 @@ const Content = () => {
       </p>
       <div className="multiimage-container">
         <div className="image-container">
-          <img src={theme === "dark" ? chart3DM : chart3}></img>
+          <img
+            loading="lazy"
+            src={theme === "dark" ? "imgs/chart3-dm.png" : "imgs/chart3.png"}
+          ></img>
           <figcaption>
             Fig. 3. Trayectorias que sigue el sistema en el espacio de fases a
             lo largo del tiempo, partiendo de distintos puntos
           </figcaption>
         </div>
         <div className="image-container">
-          <img src={theme === "dark" ? chart4DM : chart4}></img>
+          <img
+            loading="lazy"
+            src={theme === "dark" ? "imgs/chart4-dm.png" : "imgs/chart4.png"}
+          ></img>
           <figcaption>
             Fig. 4. Trayectorias que sigue el sistema en el espacio de fases a
             lo largo del tiempo, partiendo de distintos puntos
@@ -211,7 +205,10 @@ const Content = () => {
         dado que nos permite extraer prácticamente la misma información.
       </p>
       <div className="image-container">
-        <img src={theme === "dark" ? chart5DM : chart5}></img>
+        <img
+          loading="lazy"
+          src={theme === "dark" ? "imgs/chart5-dm.png" : "imgs/chart5.png"}
+        ></img>
         <figcaption>
           Fig. 5. Trayectorias dibujadas sobre el espacio de fases del sistema
         </figcaption>
@@ -275,7 +272,10 @@ const Content = () => {
         </ul>
       </p>
       <div className="monoimage-container">
-        <img src={theme === "dark" ? chart6DM : chart6}></img>
+        <img
+          loading="lazy"
+          src={theme === "dark" ? "imgs/chart6-dm.png" : "imgs/chart6.png"}
+        ></img>
         <figcaption>
           Fig. 6. Puntos fijos y sus efectos sobre el sistema. En el primer
           diagrama se puede ver un punto fijo atractor, en el segundo dos puntos
@@ -505,14 +505,20 @@ const Content = () => {
           }}
         >
           <div className="monoimage-container">
-            <img src={theme === "dark" ? chart7DM : chart7}></img>
+            <img
+              loading="lazy"
+              src={theme === "dark" ? "imgs/chart7-dm.png" : "imgs/chart7.png"}
+            ></img>
             <figcaption>
               Fig. 7. Análisis de estabilidad de puntos fijos para sistemas de
               tiempo discreto.
             </figcaption>
           </div>
           <div className="monoimage-container">
-            <img src={theme === "dark" ? chart8DM : chart8}></img>
+            <img
+              loading="lazy"
+              src={theme === "dark" ? "imgs/chart8-dm.png" : "imgs/chart8.png"}
+            ></img>
             <figcaption>
               Fig. 8. Análisis de estabilidad de puntos fijos para sistemas de
               tiempo continuo.
@@ -542,7 +548,10 @@ const Content = () => {
         <br />
         Comprobémoslo.
         <div className="monoimage-container-small">
-          <img src={theme === "dark" ? chart9DM : chart9}></img>
+          <img
+            loading="lazy"
+            src={theme === "dark" ? "imgs/chart9-dm.png" : "imgs/chart9.png"}
+          ></img>
           <figcaption>
             Fig. 9. Trayectorias elípticas que sigue el sistema en el espacio de
             fases en regiones cercanas al punto fijo encontrado.
@@ -605,7 +614,10 @@ const Content = () => {
         </ul>
         Comprobemos esto resultados graficando el espacio de fases
         <div className="monoimage-container-small">
-          <img src={theme === "dark" ? chart10DM : chart10}></img>
+          <img
+            loading="lazy"
+            src={theme === "dark" ? "imgs/chart10-dm.png" : "imgs/chart10.png"}
+          ></img>
           <figcaption>
             Fig. 10. Trayectorias que sigue el modelo de Lotka-Volterra. El
             (0,0) es un punto silla, que atrae en el eje vertical y repele en el
