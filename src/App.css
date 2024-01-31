@@ -1,3 +1,12 @@
+.dark {
+  color: white;
+}
+
+.light {
+  color: black;
+}
+
+/* Background pagina */
 .background-container {
   background-repeat: repeat;
   background-size: auto;
@@ -6,13 +15,20 @@
 }
 
 .light .background-container {
-  background-image: url('./level_curve1.png');
+  background-image: url("./level_curve1.png");
 }
 
 .dark .background-container {
-  background-image: url('./level_curve2.png');
+  background-image: url("./level_curve2.png");
 }
 
-.background-container2 {
-  background-color: rebeccapurple;
+/* Body html */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Katex */
+.katex {
+  font-size: 1.1em;
 }

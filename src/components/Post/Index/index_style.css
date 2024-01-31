@@ -1,3 +1,5 @@
+
+/* Contenedor */
 .index-container {
   margin-top: 50px;
   position: fixed;
@@ -18,6 +20,13 @@
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
 }
 
+@media (max-width: 1194px) {
+  .index-container {
+    display: none;
+  }
+}
+
+/* Secciones */
 .h2 {
   margin-top: 10px;
 }
@@ -41,20 +50,21 @@ a {
   font-weight: 700;
 }
 
-.light a {
-  color: black;
+
+/* Seccion inactiva*/
+.inactive-section a {
+  opacity: 0.65;
 }
 
-.dark a {
-  color: white;
+.inactive-section a:hover {
+  opacity: 1;
 }
 
-@media (max-width: 1194px) {
-  .index-container {
-    display: none;
-  }
+/* Seccion activa*/
+.light .active-section a {
+  color: rgb(74, 24, 255)
 }
 
-.active-section a{
-  color: greenyellow
+.dark .active-section a {
+  color: rgb(255, 0, 179);
 }
