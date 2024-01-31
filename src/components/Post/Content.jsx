@@ -91,7 +91,7 @@ const Content = () => {
       </p>
       <div className="multiimage-container">
         <div className="image-container">
-          <img src={theme === "dark" ? chart1DM : chart1}></img>
+          <img loading="lazy" src={theme === "dark" ? chart1DM : chart1}></img>
           <figcaption>
             Fig. 1. Trayectorias que sigue el sistema lo largo del tiempo cuando
             k=1.2 tal que la población crece exponencialmente tendiendo al
@@ -99,7 +99,7 @@ const Content = () => {
           </figcaption>
         </div>
         <div className="image-container">
-          <img src={theme === "dark" ? chart2DM : chart2}></img>
+          <img loading="lazy" src={theme === "dark" ? chart2DM : chart2}></img>
           <figcaption>
             Fig. 2. Trayectorias que sigue el sistema lo largo del tiempo cuando
             k=0.8 tal que la población decrece exponencialmente convergiendo a
@@ -179,14 +179,14 @@ const Content = () => {
       </p>
       <div className="multiimage-container">
         <div className="image-container">
-          <img src={theme === "dark" ? chart3DM : chart3}></img>
+          <img loading="lazy" src={theme === "dark" ? chart3DM : chart3}></img>
           <figcaption>
             Fig. 3. Trayectorias que sigue el sistema en el espacio de fases a
             lo largo del tiempo, partiendo de distintos puntos
           </figcaption>
         </div>
         <div className="image-container">
-          <img src={theme === "dark" ? chart4DM : chart4}></img>
+          <img loading="lazy" src={theme === "dark" ? chart4DM : chart4}></img>
           <figcaption>
             Fig. 4. Trayectorias que sigue el sistema en el espacio de fases a
             lo largo del tiempo, partiendo de distintos puntos
@@ -211,7 +211,7 @@ const Content = () => {
         dado que nos permite extraer prácticamente la misma información.
       </p>
       <div className="image-container">
-        <img src={theme === "dark" ? chart5DM : chart5}></img>
+        <img loading="lazy" src={theme === "dark" ? chart5DM : chart5}></img>
         <figcaption>
           Fig. 5. Trayectorias dibujadas sobre el espacio de fases del sistema
         </figcaption>
@@ -275,7 +275,7 @@ const Content = () => {
         </ul>
       </p>
       <div className="monoimage-container">
-        <img src={theme === "dark" ? chart6DM : chart6}></img>
+        <img loading="lazy" src={theme === "dark" ? chart6DM : chart6}></img>
         <figcaption>
           Fig. 6. Puntos fijos y sus efectos sobre el sistema. En el primer
           diagrama se puede ver un punto fijo atractor, en el segundo dos puntos
@@ -505,14 +505,14 @@ const Content = () => {
           }}
         >
           <div className="monoimage-container">
-            <img src={theme === "dark" ? chart7DM : chart7}></img>
+            <img loading="lazy" src={theme === "dark" ? chart7DM : chart7}></img>
             <figcaption>
               Fig. 7. Análisis de estabilidad de puntos fijos para sistemas de
               tiempo discreto.
             </figcaption>
           </div>
           <div className="monoimage-container">
-            <img src={theme === "dark" ? chart8DM : chart8}></img>
+            <img loading="lazy" src={theme === "dark" ? chart8DM : chart8}></img>
             <figcaption>
               Fig. 8. Análisis de estabilidad de puntos fijos para sistemas de
               tiempo continuo.
@@ -542,7 +542,7 @@ const Content = () => {
         <br />
         Comprobémoslo.
         <div className="monoimage-container-small">
-          <img src={theme === "dark" ? chart9DM : chart9}></img>
+          <img loading="lazy" src={theme === "dark" ? chart9DM : chart9}></img>
           <figcaption>
             Fig. 9. Trayectorias elípticas que sigue el sistema en el espacio de
             fases en regiones cercanas al punto fijo encontrado.
@@ -605,7 +605,7 @@ const Content = () => {
         </ul>
         Comprobemos esto resultados graficando el espacio de fases
         <div className="monoimage-container-small">
-          <img src={theme === "dark" ? chart10DM : chart10}></img>
+          <img loading="lazy" src={theme === "dark" ? chart10DM : chart10}></img>
           <figcaption>
             Fig. 10. Trayectorias que sigue el modelo de Lotka-Volterra. El
             (0,0) es un punto silla, que atrae en el eje vertical y repele en el
