@@ -156,7 +156,7 @@ figcaption {
 }
 
 @media (min-width: 1195px) and (max-width: 1480px) {
-  .postContainer {
+  .post-container {
     margin-left: 300px;
     width: 780px;
     padding: 50px;
@@ -164,7 +164,7 @@ figcaption {
 }
 
 @media (min-width: 880px) and (max-width: 1194px) {
-  .postContainer {
+  .post-container {
     margin-left: calc(50% - 440px);
     width: 780px;
     padding: 50px;
@@ -174,7 +174,7 @@ figcaption {
 }
 
 @media (max-width: 879px) {
-  .postContainer {
+  .post-container {
     margin-left: 0%;
     margin-right: 0%;
     padding: 5%;
