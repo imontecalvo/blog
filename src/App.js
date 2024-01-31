@@ -9,17 +9,11 @@ function App() {
   const { theme } = useTheme();
 
   return (
-    <div className={theme}>
+    // <div className={theme}>
       <div className="background-container">
         <NavBar />
         <Post />
       </div>
-    </div>
-    // <div className={theme}>
-    //   <div className="background-container">
-    //     <NavBar />
-    //     <Post />/
-    //   </div>
     // </div>
   );
 }

@@ -38,7 +38,6 @@ const Index = ({ headings }) => {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-    console.log("Active section: ", activeSection);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [activeSection, headings]);
 

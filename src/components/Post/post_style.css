@@ -168,6 +168,8 @@ figcaption {
     margin-left: calc(50% - 440px);
     width: 780px;
     padding: 50px;
+    background-color: aqua;
+
   }
 }
 
