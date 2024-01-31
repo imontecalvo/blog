@@ -1,16 +1,7 @@
 @import url("non.geist/font-faces/Geist-Regular.css");
 @import url("non.geist/font-faces/Geist-SemiBold.css");
 
-
-
-.dark {
-  color: white;
-}
-
-.light {
-  color: black;
-}
-
+/* Contenedor del post */
 .post-container {
   margin-left: calc(50% - 440px);
   width: 780px;
@@ -25,6 +16,7 @@
   background-color: white;
 }
 
+/* Titulo superior */
 .upper-title {
   font-family: "Geist-Regular";
   font-weight: 500;
@@ -42,6 +34,7 @@
   color: #a1a1aa;
 }
 
+/* Titulo principal */
 .main-title {
   margin-left: 5%;
   font-size: 4em;
@@ -55,6 +48,7 @@
   text-shadow: 0px 0px 7px #000000;
 }
 
+/* Introduccion */
 .light .intro {
   color: #797979;
 }
@@ -63,6 +57,8 @@
   color: #c5c1c1;
 }
 
+/* Contenido */
+/* Subtitulos */
 h1 {
   font-family: "Geist-SemiBold";
   margin-top: 0px;
@@ -96,6 +92,7 @@ a {
   text-decoration: none;
 }
 
+/* Elemenetos varios */
 li {
   margin-bottom: 15px;
 }
@@ -155,6 +152,8 @@ figcaption {
   margin-left: 30px;
 }
 
+/* Media queries */
+/* Margen izquierdo (indice) fijo   */
 @media (min-width: 1195px) and (max-width: 1480px) {
   .post-container {
     margin-left: 300px;
@@ -163,16 +162,17 @@ figcaption {
   }
 }
 
+/* Margenes izquierdo y derecho movibles (desaparece indice) */
 @media (min-width: 880px) and (max-width: 1194px) {
   .post-container {
     margin-left: calc(50% - 440px);
     width: 780px;
     padding: 50px;
     background-color: aqua;
-
   }
 }
 
+/* Mobile */
 @media (max-width: 879px) {
   .post-container {
     margin-left: 0%;

@@ -18,11 +18,14 @@ const Index = ({ headings }) => {
     const scrollPosition = window.scrollY || document.documentElement.scrollTop;
 
     // Lógica para determinar la sección activa
+    // Itero por las secciones con findIndex (devuelve el indice al primer "return true")
     const newActiveSection = headings.findIndex((_, index) => {
       const sectionId = `section${index}`;
       const sectionElement = document.getElementById(sectionId);
       if (sectionElement) {
-        const sectionTop = sectionElement.offsetTop - OFFSET; // Ajusta este valor según tus necesidades
+        //Calculo inicio y fin de la sección
+        const sectionTop = sectionElement.offsetTop - OFFSET;
+        //Si es la última sección, el fin es el final del documento, sino el inicio de la siguiente sección
         if (index === headings.length - 1) return scrollPosition >= sectionTop;
         const nextSectionElement = document.getElementById(`section${index+1}`);
         const sectionBottom = nextSectionElement.offsetTop - OFFSET

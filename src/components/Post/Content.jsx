@@ -25,7 +25,6 @@ import chart10DM from "./imgs/chart10-dm.png";
 import SDEjemplo1 from "../SDEjemplo1";
 import ThreeJSScene from "../3DScene/Scene";
 import { useEffect, useState } from "react";
-import { local } from "d3";
 import { useTheme } from "../../ThemeProvider";
 
 const Content = () => {
