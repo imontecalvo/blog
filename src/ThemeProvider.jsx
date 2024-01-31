@@ -7,11 +7,19 @@ const useTheme = () => {
 };
 
 const ThemeProvider = (props) => {
-  const defaultTheme = "light";
+  let defaultTheme = localStorage.getItem("theme");
+  if (!defaultTheme) {
+    defaultTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  }
   const [theme, setTheme] = useState(defaultTheme);
+  localStorage.setItem("theme", theme);
 
   const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
+    const newTheme = theme === "light" ? "dark" : "light";
+    localStorage.setItem("theme", newTheme);
+    setTheme(newTheme);
   };
 
   return (
