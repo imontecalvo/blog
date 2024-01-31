@@ -47,9 +47,8 @@ const Index = ({ headings }) => {
         <div>
           {headings.map((h, index) => (
             <div className={h[0]}>
-              <div className={activeSection === index ? "active-section" : ""}>
+              <div className={activeSection === index ? "active-section" : "inactive-section"}>
                 <a
-                  // className={activeSection === index ? "active-section" : ""}
                   key={index}
                   onClick={() => {
                     scrollToSection(index);
@@ -64,18 +63,7 @@ const Index = ({ headings }) => {
         </div>
       ) : null}
     </div>
-    // </div>
   );
 };
 
 export default Index;
-
-{
-  /* <ul>
-{headings.map((h, index) => (
-  <li key={index}>
-    <a href={`#section${index}`}>{h[1]}</a>
-  </li>
-))}
-</ul> */
-}
