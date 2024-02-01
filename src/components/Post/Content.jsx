@@ -289,6 +289,8 @@ const Content = () => {
       <ul>
         <li>
           <b>Según la temporalidad</b>
+          <br />
+          <br />
           <ul>
             <li>
               <u>Tiempo dicreto</u>: El transcurso del tiempo sucede de manera
@@ -307,6 +309,8 @@ const Content = () => {
         </li>
         <li>
           <b>Según la linealidad</b>
+          <br />
+          <br />
           <ul>
             <li>
               <u>Lineales</u>: Tal como el nombre lo indica, el comportamiento
@@ -358,16 +362,18 @@ const Content = () => {
         cuenta que
       </p>
       <BlockMath math="x_t = x_{t-1}" />
-      <br />
+      {/* <br /> */}
       <p>A continuación un ejemplo:</p>
       <BlockMath math="x_t = 0.5·x_{t-1} + y_{t-1}·0.25" />
       <BlockMath math="y_t = -0.5·x_{t-1} + y_{t-1}·0.75" />
+      {/* <br/> */}
       <p>
         Primero, reescribimos el sistema de educaciones tal que se cumpla{" "}
         {latexInline("X_t=X_{t-1}")}
       </p>
       <BlockMath math="x_t = 0.5·x_t + y_t·0.25" />
       <BlockMath math="y_t = -0.5·x_t + y_t·0.75" />
+      {/* <br/> */}
       <p>Luego resolvemos el sistema, obteniendo como resultado:</p>
       <BlockMath math="x_t = 1.5" />
       <BlockMath math="y_t = 0.5" />
@@ -395,6 +401,7 @@ const Content = () => {
       </p>
       <BlockMath math="\frac{dx}{dt} = x - xy" />
       <BlockMath math="\frac{dy}{dt} = -y + xy" />
+      <br/>
       <p>
         En primer lugar, reescribimos el sistema tal que se cumpla{" "}
         {latexInline("\\frac{dX}{dt}=0")}
@@ -475,6 +482,8 @@ const Content = () => {
 
         <li>
           Determinar el tipo de punto fijo teniendo en cuenta:
+          <br/>
+          <br/>
           <ul>
             <li>
               Si es de <b>tiempo discreto</b>, analizar si el modulo es menor,
@@ -569,6 +578,7 @@ const Content = () => {
         {latexInline("(1,1)")}
         <br />
         <br />
+        <br />
         Lo primero que debemos hacer es obtener la matriz jacobiana. Para esto,
         derivamos cada función respecto de cada variable.
       </p>
@@ -597,6 +607,7 @@ const Content = () => {
           un punto fijo inestable de tipo <i>silla (Saddle point)</i>. Esto
           significa que atrae en una dirección pero repele en otra.
         </li>
+        <br />
         <br />
         <li>
           <b>Punto fijo {latexInline("(1,1)")}</b>
