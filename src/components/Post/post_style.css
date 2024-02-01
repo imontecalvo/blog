@@ -84,11 +84,13 @@ h4 {
   margin-top: 30px;
 }
 
+ol,
+ul,
 p,
 a {
   font-family: "Geist-Regular";
   font-weight: 50;
-  font-size: 0.9em;
+  font-size: 15px;
   text-decoration: none;
 }
 
