@@ -1,3 +1,4 @@
+import { VerticalShades } from "@mui/icons-material";
 import * as THREE from "three";
 
 // const COLOR = 0xffd412
@@ -107,7 +108,16 @@ const SDEjemplo1 = (lineColor) => {
   camera.lookAt(new THREE.Vector3(centerX, centerY, centerZ));
   const target = new THREE.Vector3(centerX, centerY, centerZ);
 
-  return { scene, camera, target, lineColor};
+  return { scene, camera, target};
 };
 
 export default SDEjemplo1;
+
+
+// 1. Creo escena y cámara
+// 2. Generar vertices -> vertices
+// 3. Crear BufferGeometry
+// 4. Asignar atributos a BufferGeometry
+// 5. Crear material
+// 6. Dibujar elemento a partir de BufferGeometry y material
+// 7. Añadir a la escena

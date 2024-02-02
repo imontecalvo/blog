@@ -59,9 +59,6 @@ export class Scene {
     window.addEventListener("resize", resize);
     this.resize();
     this.currentMount.appendChild(this.renderer.domElement);
-
-    //Center the scene
-    this.currentMount.style.transform = "translate(0%, 0%)";
   }
 
   unmount() {

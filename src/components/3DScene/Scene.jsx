@@ -22,10 +22,13 @@ const ThreeJSScene = (props) => {
   return (
     <div
       ref={mountRef}
-      style={{ width: "80%", height: "50vh", marginBottom: 10 }}
+      style={{
+        width: "100%",
+        height: "50vh",
+        marginBottom: 10,
+      }}
     />
   );
-  //   return <div ref={mountRef} id="canvas-container"></div>;
 };
 
 export default ThreeJSScene;
