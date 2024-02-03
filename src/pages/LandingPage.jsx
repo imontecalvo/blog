@@ -1,6 +1,7 @@
 import ThreeJSScene from "../components/3DScene/Scene";
 import Cover from "../components/Cover";
 import SDEjemplo1 from "../components/SDEjemplo1";
+
 const LandingPage = () => {
   const cover = Cover();
   const sdejemplo1 = SDEjemplo1("black");
