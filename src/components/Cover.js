@@ -6,7 +6,6 @@ import { randFloat } from "three/src/math/MathUtils";
 import gsap from "gsap";
 import { useEffect } from "react";
 
-
 const Cover = () => {
   var scene = new THREE.Scene();
   scene.background = new THREE.Color(0x09090b);
@@ -27,7 +26,9 @@ const Cover = () => {
   for (let i = 0; i < nRows; i++) {
     for (let j = 0; j < nColumns; j++) {
       points.push(...[j, i, 0]);
-      initPoints.push(...[j-nColumns/2, i-nRows/2, randFloat(120,400)]);
+      initPoints.push(
+        ...[j - nColumns / 2, i - nRows / 2, randFloat(120, 400)]
+      );
     }
   }
 
@@ -46,12 +47,12 @@ const Cover = () => {
     fragmentShader: fragShader,
     vertexShader: vertShader,
     uniforms: {
-      uPointSize: { value: 2. },
+      uPointSize: { value: 2 },
       uTexture: { value: new THREE.TextureLoader().load("cover.png") },
       uNLines: { value: nRows },
       uNColumns: { value: nColumns },
       uProgress: { value: 0 },
-      uTime : { value: 0},
+      uTime: { value: 0 },
       uCursorPos: { value: new THREE.Vector2(0, 0) },
     },
     transparent: true,
@@ -75,28 +76,24 @@ const Cover = () => {
     { value: 1, duration: 2.5, ease: "Power4.easeOut" }
   );
 
-
-  const timeAnimation = ()=>{
+  const timeAnimation = () => {
     material.uniforms.uTime.value += 1;
-  }
+  };
 
   const raycaster = new THREE.Raycaster();
-const mouse = new THREE.Vector2(0.,0.);
-const prevMouse = new THREE.Vector2(0.,0.);
+  const mouse = new THREE.Vector2(0, 0);
 
-// Agrega un listener para el evento de movimiento del ratón
-window.addEventListener('mousemove', onMouseMove);
+  // Agrega un listener para el evento de movimiento del ratón
+  window.addEventListener("mousemove", onMouseMove);
 
-// Función que se ejecuta cuando se mueve el ratón
-function onMouseMove(event) {
+  // Función que se ejecuta cuando se mueve el ratón
+  function onMouseMove(event) {
     prevMouse.x = mouse.x;
     prevMouse.y = mouse.y;
 
     // Calcula las coordenadas normalizadas del ratón
     mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
     mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-
-  // console.log(mouse.x, mouse.y)
 
     // Actualiza el raycaster con las coordenadas del ratón y la cámara
     raycaster.setFromCamera(mouse, camera);
@@ -105,15 +102,14 @@ function onMouseMove(event) {
     const intersects = raycaster.intersectObject(element);
 
     if (intersects.length > 0) {
-        // La posición del cursor en el espacio 3D es la posición de la intersección
-        const cursorPosition = intersects[0].point;
+      // La posición del cursor en el espacio 3D es la posición de la intersección
+      const cursorPosition = intersects[0].point;
 
-        // Actualiza la uniforme con la nueva posición del cursor
-        material.uniforms.uCursorPos.value.copy(cursorPosition);
-        // material.uniforms.uCursorPosPrev.value.copy(cursorPosition);
+      // Actualiza la uniforme con la nueva posición del cursor
+      material.uniforms.uCursorPos.value.copy(cursorPosition);
     }
-}
-  return { scene, camera, target, timeAnimation};
+  }
+  return { scene, camera, target, timeAnimation };
 };
 
 export default Cover;
@@ -196,7 +192,3 @@ void main() {
 
 
 `;
-
-
-// posActual = e^...
-// posActual = max (posActual, posAnterior-f)
