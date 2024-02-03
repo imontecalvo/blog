@@ -1,10 +1,6 @@
-import { FaceOutlined, VerticalShades } from "@mui/icons-material";
 import * as THREE from "three";
-import vertexShader from "../glsl/main.vert";
-import fragmentShader from "../glsl/main.frag";
 import { randFloat } from "three/src/math/MathUtils";
 import gsap from "gsap";
-import { useEffect } from "react";
 
 const Cover = () => {
   var scene = new THREE.Scene();
@@ -88,9 +84,6 @@ const Cover = () => {
 
   // Función que se ejecuta cuando se mueve el ratón
   function onMouseMove(event) {
-    prevMouse.x = mouse.x;
-    prevMouse.y = mouse.y;
-
     // Calcula las coordenadas normalizadas del ratón
     mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
     mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
@@ -181,7 +174,7 @@ void main() {
   float extrusionDecay = 1.01;  // Add a decay factor
 
   // extrusionAmount *= pow(extrusionDecay, sin(0.03*uTime)*200.);
-  extrusionAmount *= sin(0.03*uTime)*10.;
+  extrusionAmount *= sin(0.03*uTime)*10.+5.;
 
   transformed.z += extrusionAmount;
 
