@@ -4,7 +4,7 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { Scene } from "./Script";
 
 const ThreeJSScene = (props) => {
-  const scene = new Scene(props.scene, props.camera, props.target);
+  const scene = new Scene(props.scene, props.camera, props.target, props.timeAnimation);
 
   const mountRef = useRef(null);
   // makeScene(props.scene,props.camera, props.target);

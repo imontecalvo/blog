@@ -17,7 +17,7 @@ const Cover = () => {
     1000
   );
 
-  const factor = 20;
+  const factor = 35;
   const nColumns = 16 * factor;
   const nRows = 9 * factor;
   const points = [];
@@ -26,7 +26,7 @@ const Cover = () => {
   for (let i = 0; i < nRows; i++) {
     for (let j = 0; j < nColumns; j++) {
       points.push(...[j, i, 0]);
-      initPoints.push(...[j-nColumns/2, i-nRows/2, randFloat(60,200)]);
+      initPoints.push(...[j-nColumns/2, i-nRows/2, randFloat(120,400)]);
     }
   }
 
@@ -45,11 +45,12 @@ const Cover = () => {
     fragmentShader: fragShader,
     vertexShader: vertShader,
     uniforms: {
-      uPointSize: { value: 2.5 },
+      uPointSize: { value: 2. },
       uTexture: { value: new THREE.TextureLoader().load("cover.png") },
       uNLines: { value: nRows },
       uNColumns: { value: nColumns },
       uProgress: { value: 0 },
+      uTime : { value: 0}
     },
     transparent: true,
     depthTest: false,
@@ -62,7 +63,7 @@ const Cover = () => {
   var axesHelper = new THREE.AxesHelper(10);
   scene.add(axesHelper);
 
-  camera.position.set(0, 0, 70);
+  camera.position.set(0, 0, 120);
   camera.lookAt(new THREE.Vector3(0, 0, 0));
   const target = new THREE.Vector3(0, 0, 0);
 
@@ -72,7 +73,12 @@ const Cover = () => {
     { value: 1, duration: 2.5, ease: "Power4.easeOut" }
   );
 
-  return { scene, camera, target };
+
+  const timeAnimation = ()=>{
+    material.uniforms.uTime.value += 1;
+  }
+
+  return { scene, camera, target, timeAnimation};
 };
 
 export default Cover;
@@ -117,6 +123,7 @@ void main(){
 const vertShader = `
 uniform float uPointSize;
 uniform float uProgress;
+uniform float uTime;
 
 varying vec2 vTextureCoord;
 
@@ -125,6 +132,9 @@ attribute vec3 initPosition;
 void main(){
     #include <begin_vertex>
     transformed = initPosition + ((position - initPosition) * uProgress);
+
+    transformed.z += sin(transformed.x *0.1 + uTime*0.03) * 1.;
+    transformed.z += sin(transformed.y *0.1 + uTime*0.03) * 1.;
 
     #include <project_vertex>
     gl_PointSize = uPointSize;

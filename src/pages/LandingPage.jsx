@@ -5,7 +5,7 @@ import SDEjemplo1 from "../components/SDEjemplo1";
 const LandingPage = () => {
   const cover = Cover();
   const sdejemplo1 = SDEjemplo1("black");
-
+  console.log(cover)
   return (
     <div
       style={{ display: "flex", justifyContent: "center", marginTop: "50px", flexDirection: "column"}}
@@ -15,6 +15,7 @@ const LandingPage = () => {
         scene={cover.scene}
         camera={cover.camera}
         target={cover.target}
+        timeAnimation={cover.timeAnimation}
       />
     </div>
   );
