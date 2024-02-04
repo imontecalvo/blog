@@ -3,9 +3,9 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 export class Scene {
-  constructor(aScene, aCamera, target = null, timeAnimation=null) {
+  constructor(aScene, aCamera, target = null, timeAnimation = null) {
     this.currentMount = null;
-    this.renderer = new THREE.WebGLRenderer({alpha: true});
+    this.renderer = new THREE.WebGLRenderer({ alpha: true });
 
     this.scene = aScene;
     this.camera = aCamera;
@@ -19,7 +19,7 @@ export class Scene {
 
     //Render the scene
     const animate = () => {
-      if (timeAnimation){
+      if (timeAnimation) {
         timeAnimation();
       }
       requestAnimationFrame(animate);
@@ -56,7 +56,6 @@ export class Scene {
         scene.camera.updateProjectionMatrix();
       }
     }
-    
 
     this.currentMount = mountRef.current;
     window.addEventListener("resize", resize);

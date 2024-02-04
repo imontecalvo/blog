@@ -4,6 +4,8 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { Scene } from "./Script";
 
 const ThreeJSScene = (props) => {
+  const heigth = props.height ?? "50vh";
+  console.log(heigth)
   const scene = new Scene(props.scene, props.camera, props.target, props.timeAnimation);
 
   const mountRef = useRef(null);
@@ -24,9 +26,8 @@ const ThreeJSScene = (props) => {
       ref={mountRef}
       style={{
         width: "100%",
-        height: "50vh",
+        height: heigth,
         marginBottom: 10,
-        // backgroundColor:"black"
       }}
     />
   );

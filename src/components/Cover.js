@@ -50,6 +50,7 @@ const Cover = () => {
       uProgress: { value: 0 },
       uTime: { value: 0 },
       uCursorPos: { value: new THREE.Vector2(0, 0) },
+      uTextColor: { value: new THREE.Vector3(1., 1., 1.)},
     },
     transparent: true,
     depthTest: false,
@@ -62,7 +63,7 @@ const Cover = () => {
   var axesHelper = new THREE.AxesHelper(10);
   scene.add(axesHelper);
 
-  camera.position.set(0, 0, 120);
+  camera.position.set(0, 0, 80);
   camera.lookAt(new THREE.Vector3(0, 0, 0));
   const target = new THREE.Vector3(0, 0, 0);
 
@@ -76,6 +77,16 @@ const Cover = () => {
     material.uniforms.uTime.value += 1;
   };
 
+  // Agrega un listener para el evento de cambio de tamaño de la ventana
+  //TODO: Convertir en Responsive modificando el callback
+  window.addEventListener("resize", () => {
+    if (window.innerWidth <= 768) {
+      material.uniforms.uTextColor.value = new THREE.Vector3(0., 1., 0.);
+    }else{
+      material.uniforms.uTextColor.value = new THREE.Vector3(1., 1., 1.);
+    }
+  });
+
   const raycaster = new THREE.Raycaster();
   const mouse = new THREE.Vector2(0, 0);
 
@@ -86,7 +97,7 @@ const Cover = () => {
   function onMouseMove(event) {
     // Calcula las coordenadas normalizadas del ratón
     mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+    mouse.y = -(event.clientY / window.innerHeight) * 5 + 1;
 
     // Actualiza el raycaster con las coordenadas del ratón y la cámara
     raycaster.setFromCamera(mouse, camera);
@@ -112,6 +123,7 @@ uniform sampler2D uTexture;
 uniform float uNLines;
 uniform float uNColumns;
 uniform float uProgress;
+uniform vec3 uTextColor;
 varying vec2 vTextureCoord;
 
 float circle(vec2 uv, float border){
@@ -136,6 +148,7 @@ void main(){
 
     if (gl_FragColor.r < 0.8 ) discard;
     gl_FragColor.rgb = vec3(1.0);
+    gl_FragColor.rgb = uTextColor;
 
     gl_FragColor.a *= circle(gl_PointCoord, 0.2);
 
