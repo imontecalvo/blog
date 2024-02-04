@@ -18,7 +18,7 @@ const Post = () => {
 
   return (
     <>
-      <div style={{ display: "flex" }}>
+      <div className="background-container" style={{ display: "flex" }}>
         <Index headings={headings} />
         <div className="post-container">
           <Content />

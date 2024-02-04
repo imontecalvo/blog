@@ -1,22 +1,30 @@
 import ThreeJSScene from "../components/3DScene/Scene";
 import Cover from "../components/Cover";
 import SDEjemplo1 from "../components/SDEjemplo1";
+import { useTheme } from "../ThemeProvider";
+
+import "./landing_style.css";
 
 const LandingPage = () => {
-  const cover = Cover();
-  const sdejemplo1 = SDEjemplo1("black");
-  console.log(cover)
+  const { theme } = useTheme();
+  const cover = Cover(theme);
+
   return (
-    <div
-      style={{ display: "flex", justifyContent: "center", marginTop: "50px", flexDirection: "column"}}
-    >
-      <ThreeJSScene
-        scene={cover.scene}
-        camera={cover.camera}
-        target={cover.target}
-        timeAnimation={cover.timeAnimation}
-        height="30vh"
-      />
+    <div className="landing-background">
+      <div
+        style={{
+          flex: 1,
+          overflow: "hidden",
+        }}
+      >
+        <ThreeJSScene
+          scene={cover.scene}
+          camera={cover.camera}
+          target={cover.target}
+          timeAnimation={cover.timeAnimation}
+          height="30vh"
+        />
+      </div>
     </div>
   );
 };

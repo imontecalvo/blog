@@ -5,7 +5,7 @@ import { Scene } from "./Script";
 
 const ThreeJSScene = (props) => {
   const heigth = props.height ?? "50vh";
-  console.log(heigth)
+
   const scene = new Scene(props.scene, props.camera, props.target, props.timeAnimation);
 
   const mountRef = useRef(null);

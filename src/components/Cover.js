@@ -2,9 +2,11 @@ import * as THREE from "three";
 import { randFloat } from "three/src/math/MathUtils";
 import gsap from "gsap";
 
-const Cover = () => {
+const Cover = (theme) => {
+  const textColor = theme === "dark" ? 0xffffff : 0x09090b;
+
   var scene = new THREE.Scene();
-  scene.background = new THREE.Color(0x09090b);
+  // scene.background = new THREE.Color(0x09090b);
 
   var camera = new THREE.PerspectiveCamera(
     75,
@@ -50,7 +52,7 @@ const Cover = () => {
       uProgress: { value: 0 },
       uTime: { value: 0 },
       uCursorPos: { value: new THREE.Vector2(0, 0) },
-      uTextColor: { value: new THREE.Vector3(1., 1., 1.)},
+      uTextColor: { value: new THREE.Color(textColor) },
     },
     transparent: true,
     depthTest: false,
@@ -59,9 +61,6 @@ const Cover = () => {
 
   const element = new THREE.Points(geometry, material);
   scene.add(element);
-
-  var axesHelper = new THREE.AxesHelper(10);
-  scene.add(axesHelper);
 
   camera.position.set(0, 0, 80);
   camera.lookAt(new THREE.Vector3(0, 0, 0));
@@ -81,9 +80,9 @@ const Cover = () => {
   //TODO: Convertir en Responsive modificando el callback
   window.addEventListener("resize", () => {
     if (window.innerWidth <= 768) {
-      material.uniforms.uTextColor.value = new THREE.Vector3(0., 1., 0.);
-    }else{
-      material.uniforms.uTextColor.value = new THREE.Vector3(1., 1., 1.);
+      material.uniforms.uTextColor.value = new THREE.Vector3(0, 1, 0);
+    } else {
+      material.uniforms.uTextColor.value = new THREE.Vector3(1, 1, 1);
     }
   });
 
