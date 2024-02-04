@@ -13,6 +13,9 @@ const LandingPage = () => {
     <div className="landing-background">
       <div
         style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
           flex: 1,
           overflow: "hidden",
         }}
@@ -24,6 +27,11 @@ const LandingPage = () => {
           timeAnimation={cover.timeAnimation}
           height="30vh"
         />
+        <div className="container">
+          <div className="retro-border">
+            <p>Textoo</p>
+          </div>
+        </div>
       </div>
     </div>
   );

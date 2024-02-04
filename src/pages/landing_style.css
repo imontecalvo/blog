@@ -8,12 +8,56 @@
 }
 
 .dark .landing-background {
-    background-color: #09090b;
-    /* background-color: #008000; */
-    color: white;
+  /* background-color: #09090b; */
+  background-color: #008000;
+  color: white;
 }
 
 .light .landing-background {
-    background-color: #ffffff;
-    color: black;
+  background-color: #ffffff;
+  color: black;
+}
+
+
+.container{
+    /* margin-left: calc(50% - 440px); */
+    /* width: 780px; */
+    width: 900px;
+    background-color: pink;
+    padding: 10px 30px;
+    /* width: 100%; */
+}
+
+.retro-border {
+  /* width: 100%; */
+  text-align: center;
+  position: relative;
+  padding: 1px;
+}
+
+.retro-border::after,
+.retro-border::before {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  /* to click through anytime */
+  border: solid 3px;
+}
+
+.retro-border::after {
+  left: 4.5px;
+  right: 4.5px;
+  top: 0;
+  bottom: 0;
+  border-left: none;
+  border-right: none;
+}
+
+.retro-border::before {
+  top: 4.5px;
+  bottom: 4.5px;
+  left: 0;
+  right: 0;
+  border-top: none;
+  border-bottom: none;
 }
