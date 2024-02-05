@@ -31,6 +31,7 @@ const LandingPage = () => {
           <div className="retro-border">
             <p>Textoo</p>
           </div>
+          {/* <PaginationBar /> */}
         </div>
       </div>
     </div>

@@ -69,7 +69,7 @@ const Content = () => {
         <div className="image-container">
           <img
             loading="lazy"
-            src={theme === "dark" ? "imgs/chart1-dm.png" : "imgs/chart1.png"}
+            src={theme === "dark" ? "/imgs/chart1-dm.png" : "/imgs/chart1.png"}
           ></img>
           <figcaption>
             Fig. 1. Trayectorias que sigue el sistema lo largo del tiempo cuando
@@ -80,7 +80,7 @@ const Content = () => {
         <div className="image-container">
           <img
             loading="lazy"
-            src={theme === "dark" ? "imgs/chart2-dm.png" : "imgs/chart2.png"}
+            src={theme === "dark" ? "/imgs/chart2-dm.png" : "/imgs/chart2.png"}
           ></img>
           <figcaption>
             Fig. 2. Trayectorias que sigue el sistema lo largo del tiempo cuando
@@ -166,7 +166,7 @@ const Content = () => {
         <div className="image-container">
           <img
             loading="lazy"
-            src={theme === "dark" ? "imgs/chart3-dm.png" : "imgs/chart3.png"}
+            src={theme === "dark" ? "/imgs/chart3-dm.png" : "/imgs/chart3.png"}
           ></img>
           <figcaption>
             Fig. 3. Trayectorias que sigue el sistema en el espacio de fases a
@@ -176,7 +176,7 @@ const Content = () => {
         <div className="image-container">
           <img
             loading="lazy"
-            src={theme === "dark" ? "imgs/chart4-dm.png" : "imgs/chart4.png"}
+            src={theme === "dark" ? "/imgs/chart4-dm.png" : "/imgs/chart4.png"}
           ></img>
           <figcaption>
             Fig. 4. Trayectorias que sigue el sistema en el espacio de fases a
@@ -204,7 +204,7 @@ const Content = () => {
       <div className="image-container">
         <img
           loading="lazy"
-          src={theme === "dark" ? "imgs/chart5-dm.png" : "imgs/chart5.png"}
+          src={theme === "dark" ? "/imgs/chart5-dm.png" : "/imgs/chart5.png"}
         ></img>
         <figcaption>
           Fig. 5. Trayectorias dibujadas sobre el espacio de fases del sistema
@@ -271,7 +271,7 @@ const Content = () => {
       <div className="monoimage-container">
         <img
           loading="lazy"
-          src={theme === "dark" ? "imgs/chart6-dm.png" : "imgs/chart6.png"}
+          src={theme === "dark" ? "/imgs/chart6-dm.png" : "/imgs/chart6.png"}
         ></img>
         <figcaption>
           Fig. 6. Puntos fijos y sus efectos sobre el sistema. En el primer
@@ -512,7 +512,7 @@ const Content = () => {
         <div className="monoimage-container">
           <img
             loading="lazy"
-            src={theme === "dark" ? "imgs/chart7-dm.png" : "imgs/chart7.png"}
+            src={theme === "dark" ? "/imgs/chart7-dm.png" : "/imgs/chart7.png"}
           ></img>
           <figcaption>
             Fig. 7. Análisis de estabilidad de puntos fijos para sistemas de
@@ -522,7 +522,7 @@ const Content = () => {
         <div className="monoimage-container">
           <img
             loading="lazy"
-            src={theme === "dark" ? "imgs/chart8-dm.png" : "imgs/chart8.png"}
+            src={theme === "dark" ? "/imgs/chart8-dm.png" : "/imgs/chart8.png"}
           ></img>
           <figcaption>
             Fig. 8. Análisis de estabilidad de puntos fijos para sistemas de
@@ -558,7 +558,7 @@ const Content = () => {
       <div className="monoimage-container-small">
         <img
           loading="lazy"
-          src={theme === "dark" ? "imgs/chart9-dm.png" : "imgs/chart9.png"}
+          src={theme === "dark" ? "/imgs/chart9-dm.png" : "/imgs/chart9.png"}
         ></img>
         <figcaption>
           Fig. 9. Trayectorias elípticas que sigue el sistema en el espacio de
@@ -632,7 +632,7 @@ const Content = () => {
       <div className="monoimage-container-small">
         <img
           loading="lazy"
-          src={theme === "dark" ? "imgs/chart10-dm.png" : "imgs/chart10.png"}
+          src={theme === "dark" ? "/imgs/chart10-dm.png" : "/imgs/chart10.png"}
         ></img>
         <figcaption>
           Fig. 10. Trayectorias que sigue el modelo de Lotka-Volterra. El (0,0)
