@@ -153,7 +153,7 @@ const Content = () => {
         <ThreeJSScene
           scene={sd1.scene}
           camera={sd1.camera}
-          target={sd1.target}
+          config={{target:sd1.target, orbitControls:true}}
         />
       </div>
       <p>

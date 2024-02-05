@@ -2,6 +2,10 @@ import ThreeJSScene from "../components/3DScene/Scene";
 import Cover from "../components/Cover";
 import SDEjemplo1 from "../components/SDEjemplo1";
 import { useTheme } from "../ThemeProvider";
+import Box from "@mui/material/Box";
+import Input from "@mui/material/Input";
+import TextField from "@mui/material/TextField";
+import { SearchInput } from "../components/Mui.jsx";
 
 import "./landing_style.css";
 
@@ -23,19 +27,25 @@ const LandingPage = () => {
         <ThreeJSScene
           scene={cover.scene}
           camera={cover.camera}
-          target={cover.target}
-          timeAnimation={cover.timeAnimation}
           height="30vh"
+          config={{target:cover.target, timeAnimation:cover.timeAnimation, orbitControls:false}}
         />
         <div className="container">
           <div className="retro-border">
-            <p>Textoo</p>
+            <p>Filtrar</p>
+            <Input style={darkModeStyles} placeholder="Buscar"/>
           </div>
           {/* <PaginationBar /> */}
         </div>
       </div>
     </div>
   );
+};
+
+const darkModeStyles = {
+  color: "white",
+  backgroundColor: "#333",
+  padding: "0px 10px",
 };
 
 export default LandingPage;
