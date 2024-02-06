@@ -8,6 +8,16 @@
   flex-direction: column;
 }
 
+.dark .card-container:hover {
+  border-color: rgb(255, 0, 179);
+  cursor: pointer;
+}
+
+.light .card-container:hover {
+  border-color: rgb(74, 24, 255);
+  cursor: pointer;
+}
+
 .card-title {
   background-color: rgba(0, 0, 0, 0.5);
   padding: 10px;

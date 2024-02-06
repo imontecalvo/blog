@@ -3,13 +3,19 @@ import Divider from "@mui/material/Divider";
 import Chip from "./Chip";
 import { purple } from "@mui/material/colors";
 import { useTheme } from "../../ThemeProvider";
+import { useNavigate } from "react-router-dom";
 
 const PostCard = ({ title, description }) => {
 
   const {theme} = useTheme( )
+  const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    navigate("/post/1");
+  }
 
   return (
-    <div className="card-container">
+    <div className="card-container" onClick={handleNavigate}>
       <div style={{position: "relative"}}>
         <img style={{display: "block", maxWidth: "100%" }} src="/post_cover.jpg" />
         <h3 className="card-title">{title}</h3>

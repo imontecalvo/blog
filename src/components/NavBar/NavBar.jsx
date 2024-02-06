@@ -41,7 +41,7 @@ const NavBar = () => {
     <div className="navbar">
       <nav style={{ marginLeft: "10px" }}>
         <a
-          href="#"
+          href="/"
           style={{ display: "flex", alignItems: "center", color: fgColor }}
         >
           <Home size={24} />
