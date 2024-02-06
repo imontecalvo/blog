@@ -3,12 +3,21 @@
     min-width: 30vh;
     border: 2px solid white;
     margin: 1% 0%;
+    padding: 10px 10px;
+    display: flex;
+    flex-direction: column;
 }
 
 .card-title{
-    margin: 5px 10px
+    margin: 5px 0px
 }
 
 .card-description{
-    margin: 10px 10px
+    margin: 10px 00px
+}
+
+
+.chip {
+    margin:3px 3px;
+    margin-top: auto;
 }
