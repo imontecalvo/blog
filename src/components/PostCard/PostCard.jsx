@@ -2,8 +2,12 @@ import "./postcard_style.css";
 import Divider from "@mui/material/Divider";
 import Chip from "./Chip";
 import { purple } from "@mui/material/colors";
+import { useTheme } from "../../ThemeProvider";
 
 const PostCard = ({ title, description }) => {
+
+  const {theme} = useTheme( )
+
   return (
     <div className="card-container">
       <div style={{position: "relative"}}>
@@ -11,25 +15,25 @@ const PostCard = ({ title, description }) => {
         <h3 className="card-title">{title}</h3>
       </div>
       <p className="card-description">{description}</p>
-      <Divider style={{ marginTop: "auto" }} />
-      <div style={{ display: "flex", flexWrap: "wrap", marginTop: "10px" }}>
+      {/* <Divider style={{ marginTop: "auto" }} /> */}
+      <div className="tag-container">
         <Chip
           size="small"
-          color="black"
+          color={theme === "light" ? "black" : "white"}
           className="chip"
           label="Matemática"
           variant="outlined"
         />
         <Chip
           size="small"
-          color="black"
+          color={theme === "light" ? "black" : "white"}
           className="chip"
           label="Sistemas Dinamicos"
           variant="outlined"
         />
         <Chip
           size="small"
-          color="black"
+          color={theme === "light" ? "black" : "white"}
           className="chip"
           label="Sistemas Dinamicos"
           variant="outlined"

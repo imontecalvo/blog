@@ -8,8 +8,8 @@
 }
 
 .dark .landing-background {
-  /* background-color: #09090b; */
-  background-color: #008000;
+  background-color: #09090b;
+  /* background-color: #008000; */
   color: white;
 }
 
@@ -20,12 +20,8 @@
 
 
 .container{
-    /* margin-left: calc(50% - 440px); */
-    /* width: 780px; */
     width: 900px;
-    background-color: pink;
-    /* padding: 10px 0px; */
-    /* width: 100%; */
+    background-color: transparent;
 }
 
 @media (max-width: 920px) {
@@ -38,10 +34,10 @@
 
 
 .retro-border {
-  /* width: 100%; */
   text-align: center;
   position: relative;
   padding: 1px 20px;
+  margin-bottom: 3%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -72,4 +68,19 @@
   right: 0;
   border-top: none;
   border-bottom: none;
+}
+
+.search-input{
+  background-color: transparent;
+  padding: "0px 10px";
+}
+
+.dark .search-input{
+  color: white;
+  border-bottom: 1px solid white;
+}
+
+.light .search-input{
+  color: black;
+  border-bottom: 1px solid black;
 }
