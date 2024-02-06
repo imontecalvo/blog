@@ -1,0 +1,14 @@
+.card-container{
+    width: 30%;
+    min-width: 30vh;
+    border: 2px solid white;
+    margin: 1% 0%;
+}
+
+.card-title{
+    margin: 5px 10px
+}
+
+.card-description{
+    margin: 10px 10px
+}

@@ -1,11 +1,8 @@
 import ThreeJSScene from "../components/3DScene/Scene";
 import Cover from "../components/Cover";
-import SDEjemplo1 from "../components/SDEjemplo1";
 import { useTheme } from "../ThemeProvider";
-import Box from "@mui/material/Box";
 import Input from "@mui/material/Input";
-import TextField from "@mui/material/TextField";
-import { SearchInput } from "../components/Mui.jsx";
+import PostCard from "../components/PostCard/PostCard";
 
 import "./landing_style.css";
 
@@ -27,13 +24,24 @@ const LandingPage = () => {
         <ThreeJSScene
           scene={cover.scene}
           camera={cover.camera}
-          height="30vh"
+          height="20vh"
           config={{target:cover.target, timeAnimation:cover.timeAnimation, orbitControls:false}}
         />
         <div className="container">
+          <h2 style={{marginTop:0}}>Mis posts</h2>
           <div className="retro-border">
             <p>Filtrar</p>
             <Input style={darkModeStyles} placeholder="Buscar"/>
+          </div>
+          <div style={{display:"flex", flexWrap:"wrap", gap:"1%", justifyContent:"space-around"}}>
+          <PostCard title="Entre equilibrios y transformaciones: Descubriendo los Sistemas Dinamicos" description={defDescription}/>
+          <PostCard title="Title" description={defDescription}/>
+          <PostCard title="Title" description={defDescription2}/>
+          <PostCard title="Title" description={defDescription}/>
+          <PostCard title="Title" description={defDescription}/>
+          <PostCard title="Title" description={defDescription}/>
+          <PostCard title="Title" description={defDescription}/>
+
           </div>
           {/* <PaginationBar /> */}
         </div>
@@ -49,3 +57,8 @@ const darkModeStyles = {
 };
 
 export default LandingPage;
+
+
+const defDescription = "A very descriptive description which describes the post";
+
+const defDescription2 = "A very descriptive description which describes the post A very descriptive description which describes the post A very descriptive description which describes the post";

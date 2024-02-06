@@ -62,7 +62,7 @@ const Cover = (theme) => {
   const element = new THREE.Points(geometry, material);
   scene.add(element);
 
-  camera.position.set(0, 0, 80);
+  camera.position.set(0, 0, 50);
   camera.lookAt(new THREE.Vector3(0, 0, 0));
   const target = new THREE.Vector3(0, 0, 0);
 
@@ -96,7 +96,7 @@ const Cover = (theme) => {
   function onMouseMove(event) {
     // Calcula las coordenadas normalizadas del ratón
     mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-    mouse.y = -(event.clientY / window.innerHeight) * 5 + 1;
+    mouse.y = -(event.clientY / window.innerHeight) * 7 + 1;
 
     // Actualiza el raycaster con las coordenadas del ratón y la cámara
     raycaster.setFromCamera(mouse, camera);
@@ -173,8 +173,8 @@ void main() {
   transformed = initPosition + ((position - initPosition) * uProgress);
 
 
-  transformed.z += sin(transformed.x *0.1 + uTime*0.03) * 1.;
-  transformed.z += sin(transformed.y *0.1 + uTime*0.03) * 1.;
+  transformed.z += sin(transformed.x *0.1 + uTime*0.02) * 1.;
+  transformed.z += sin(transformed.y *0.1 + uTime*0.02) * 1.;
 
   float a = 2.4 / 150.0;
   float b = 1.7 / 150.0;
@@ -186,7 +186,7 @@ void main() {
   float extrusionDecay = 1.01;  // Add a decay factor
 
   // extrusionAmount *= pow(extrusionDecay, sin(0.03*uTime)*200.);
-  extrusionAmount *= sin(0.03*uTime)*10.+5.;
+  extrusionAmount *= sin(0.03*uTime)*4.+1.5;
 
   transformed.z += extrusionAmount;
 

@@ -30,6 +30,8 @@ const ThreeJSScene = (props) => {
         width: "100%",
         height: heigth,
         marginBottom: 10,
+        marginBottom:0,
+        // backgroundColor:"violet"
       }}
     />
   );
