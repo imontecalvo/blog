@@ -8,8 +8,21 @@
     flex-direction: column;
 }
 
-.card-title{
+/* .card-title{
     margin: 5px 0px
+} */
+
+.card-title{
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    bottom: 0;
+    left: 0;
+    box-sizing: border-box;
+    color: #fff;
+    margin: 0;
+    position:absolute;
+    text-shadow: #000 1px 1px 3px;
+    width: 100%;
 }
 
 .card-description{
@@ -20,4 +33,9 @@
 .chip {
     margin:3px 3px;
     margin-top: auto;
+}
+
+.post-cover{
+    max-width: 50%;
+    /* max-height: 100px; */
 }

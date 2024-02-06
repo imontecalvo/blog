@@ -6,7 +6,10 @@ import { purple } from "@mui/material/colors";
 const PostCard = ({ title, description }) => {
   return (
     <div className="card-container">
-      <h3 className="card-title">{title}</h3>
+      <div style={{position: "relative"}}>
+        <img style={{display: "block", maxWidth: "100%" }} src="/post_cover.jpg" />
+        <h3 className="card-title">{title}</h3>
+      </div>
       <p className="card-description">{description}</p>
       <Divider style={{ marginTop: "auto" }} />
       <div style={{ display: "flex", flexWrap: "wrap", marginTop: "10px" }}>
