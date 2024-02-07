@@ -3,6 +3,8 @@ import { randFloat } from "three/src/math/MathUtils";
 import gsap from "gsap";
 
 const Cover = (theme) => {
+
+
   const textColor = theme === "dark" ? 0xffffff : 0x09090b;
 
   var scene = new THREE.Scene();
@@ -53,6 +55,8 @@ const Cover = (theme) => {
       uTime: { value: 0 },
       uCursorPos: { value: new THREE.Vector2(0, 0) },
       uTextColor: { value: new THREE.Color(textColor) },
+      filter_random: { value: false },
+      filter_threshold: {value: 1.0}
     },
     transparent: true,
     depthTest: false,
@@ -76,15 +80,26 @@ const Cover = (theme) => {
     material.uniforms.uTime.value += 1;
   };
 
-  // Agrega un listener para el evento de cambio de tamaño de la ventana
-  window.addEventListener("resize", () => {
+  const adjust_responsive = () => {
     if (window.innerWidth <= 768) {
-      camera.position.set(0, 0, 120);
+      camera.position.set(0, 0, 140);
+      material.uniforms.filter_random.value = true;
+      material.uniforms.filter_threshold.value = 0.15;
     } else if (window.innerWidth <= 1024) {
-      camera.position.set(0, 0, 60);
+      camera.position.set(0, 0, 70);
+      material.uniforms.filter_random.value = true;
+      material.uniforms.filter_threshold.value = 0.65;
     } else {
       camera.position.set(0, 0, 50);
+      material.uniforms.filter_random.value = false;
     }
+  };
+
+  adjust_responsive()
+
+  // Agrega un listener para el evento de cambio de tamaño de la ventana
+  window.addEventListener("resize", () => {
+    adjust_responsive()
   });
 
   const raycaster = new THREE.Raycaster();
@@ -124,12 +139,18 @@ uniform float uNLines;
 uniform float uNColumns;
 uniform float uProgress;
 uniform vec3 uTextColor;
+uniform bool filter_random;
+uniform float filter_threshold;
 varying vec2 vTextureCoord;
 
 float circle(vec2 uv, float border){
     float radius = 0.5;
     float dist = radius - length(uv - vec2(0.5));
     return smoothstep(0.0, border, dist);
+}
+
+float random(vec2 st) {
+  return fract(sin(dot(st.xy, vec2(12.9898,78.233))) * 43758.5453123);
 }
 
 void main(){
@@ -147,6 +168,9 @@ void main(){
     gl_FragColor = texture;
 
     if (gl_FragColor.r < 0.8 ) discard;
+    if (filter_random){
+      if (random(uv) > filter_threshold) discard;
+    }
     gl_FragColor.rgb = vec3(1.0);
     gl_FragColor.rgb = uTextColor;
 
