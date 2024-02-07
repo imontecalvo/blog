@@ -77,12 +77,13 @@ const Cover = (theme) => {
   };
 
   // Agrega un listener para el evento de cambio de tamaño de la ventana
-  //TODO: Convertir en Responsive modificando el callback
   window.addEventListener("resize", () => {
     if (window.innerWidth <= 768) {
-      material.uniforms.uTextColor.value = new THREE.Vector3(0, 1, 0);
+      camera.position.set(0, 0, 120);
+    } else if (window.innerWidth <= 1024) {
+      camera.position.set(0, 0, 60);
     } else {
-      material.uniforms.uTextColor.value = new THREE.Vector3(1, 1, 1);
+      camera.position.set(0, 0, 50);
     }
   });
 
