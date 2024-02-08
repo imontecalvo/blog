@@ -6,6 +6,8 @@ import ThreeJSScene from "../3DScene/Scene";
 import { useEffect, useState } from "react";
 import { useTheme } from "../../ThemeProvider";
 import axios from "axios";
+import * as THREE from "three";
+import { Sd } from "@mui/icons-material";
 
 const Content = () => {
   const latexInline = (text) => {
@@ -14,21 +16,28 @@ const Content = () => {
 
   const { theme } = useTheme();
 
-  const [SDEjemplo1, setSDEjemplo1] = useState("");
+  const [SDEjemplo1, setSDEjemplo1] = useState(null); //Funcion generadora de escena
+  const [sd1, setSd1] = useState(null); //Escena generada
 
   useEffect(() => {
     const getScene = async () => {
-      console.log("entraaa")
+      console.log("entra");
       try {
         const r = await axios.get("http://localhost:3005/functions/sd1");
-        setSDEjemplo1(new Function("lineColor", r.data));
-        console.log("set sd1");
+        setSDEjemplo1(r.data.data);
       } catch (e) {
         console.log(e);
       }
     };
     getScene();
   }, []);
+
+  useEffect(() => {
+    if (SDEjemplo1) {
+      const f = new Function("lineColor", "THREE", SDEjemplo1);
+      setSd1(f(theme === "dark" ? "white" : "#09090b", THREE));
+    }
+  }, [theme, SDEjemplo1]);
 
   // console.log("sd1");
   // const [sd1, setSd1] = useState(
@@ -168,11 +177,15 @@ const Content = () => {
         {latexInline("y")}.
       </p>
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <ThreeJSScene
-          scene={sd1.scene}
-          camera={sd1.camera}
-          config={{ target: sd1.target, orbitControls: true }}
-        />
+        {sd1 ? (
+          <ThreeJSScene
+            scene={sd1.scene}
+            camera={sd1.camera}
+            config={{ target: sd1.target, orbitControls: true }}
+          />
+        ) : (
+          <></>
+        )}
       </div>
       <p>
         Si probamos posicionando la cámara en distintas direcciones, se puede
