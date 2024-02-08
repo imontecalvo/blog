@@ -1,8 +1,6 @@
 @import url("non.geist/font-faces/Geist-Regular.css");
 @import url("non.geist/font-faces/Geist-SemiBold.css");
 
-
-
 /* Background pagina */
 .background-container {
   background-repeat: repeat;
@@ -18,7 +16,6 @@
 .dark .background-container {
   background-image: url("/public/level_curve2.png");
 }
-
 
 /* Contenedor del post */
 .post-container {
@@ -54,6 +51,11 @@
 }
 
 /* Titulo principal */
+
+.title-container {
+  margin-bottom: 30px;
+}
+
 .main-title {
   margin-left: 5%;
   font-size: 4em;
