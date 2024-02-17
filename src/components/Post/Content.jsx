@@ -705,6 +705,13 @@ representa el espacio de fases, concepto que veremos a continuación.
   const processedJsxString = processJsxString(jsxString);
   const processedJsxString2 = processJsxString(jsxString2);
 
+  const [postContent, setPostContent] = setUse([])
+  const [postFunctionsScenes, setPostFunctionsScenes] = setUse([])
+  const [postScenes, setPostScenes] = setUse([])
+
+  
+
+
   /* //---------- JSX PARSER -----------// */
 
   return (
