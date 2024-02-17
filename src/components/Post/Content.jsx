@@ -8,7 +8,6 @@ import { useTheme } from "../../ThemeProvider";
 import axios from "axios";
 import * as THREE from "three";
 import { Sd } from "@mui/icons-material";
-import JsxParser from "react-jsx-parser";
 
 const Content = () => {
   const latexInline = (text) => {
@@ -17,7 +16,7 @@ const Content = () => {
 
   const { theme } = useTheme();
 
-  const [SDEjemplo1, setSDEjemplo1] = useState(null); //String de funcion generadora de escena
+  const [SDEjemplo1, setSDEjemplo1] = useState(null); //Funcion generadora de escena
   const [sd1, setSd1] = useState(null); //Escena generada
 
   useEffect(() => {
@@ -40,80 +39,65 @@ const Content = () => {
     }
   }, [theme, SDEjemplo1]);
 
-  /* ---------- JSX PARSER -----------*/
+  // console.log("sd1");
+  // const [sd1, setSd1] = useState(
+  //   SDEjemplo1(theme === "dark" ? "white" : "#09090b")
+  // );
 
-  // const jsxString = `
-  // <p>holaaa</p>
-  // <p>holaaa2</p>
-  // <InlineMath math="x^2 + y^2 = 1" />
-  //   <img
-  //     loading="lazy"
-  //     src="{theme === 'dark' ? '/imgs/chart3-dm.png' : '/imgs/chart3.png'}"
-  //     alt="Chart"
-  //   />
-  //   <div style="display: flex; justify-content: center; align-items: center;">
-  //     <div>
-  //       <BlockMath math="0 = x - xy" />
-  //       <BlockMath math="0 = -y + xy" />
-  //     </div>
-  //     <p style="margin: 20px;">⟹</p>
-  //     <div>
-  //       <BlockMath math="0 = x(1-y)" />
-  //       <BlockMath math="0 = -y(1-x)" />
-  //     </div>
-  //   </div>
-  // `;
+  // useEffect(() => {
+  //   setSd1(SDEjemplo1(theme === "dark" ? "white" : "#09090b"));
+  // }, [theme]);
 
-  const jsxString = `
-  <p className="upper-title">Entre equilibrios y transformaciones:</p>
-  <div className="title-container">
-    <h1>Descubriendo los </h1>
-    <h1 className="main-title">Sistemas Dinámicos</h1>
-  </div>
-  <p className="intro">
-    ¿Alguna vez te preguntaste cómo evoluciona el crecimiento de una
-    población, el impacto de una epidemia, o incluso el flujo de agua que
-    sale de una canilla? Todos estos eventos, y muchos más, pueden
-    entenderse como sistemas dinámicos. Estos sistemas, al ser modelados,
-    nos permiten analizar diferentes escenarios y las posibles evoluciones
-    que podrían ocurrir, todo basado en las condiciones iniciales
-    establecidas.
-  </p>
-  <h2 id="section0">¿Qué es un sistema dinámico?</h2>
-  <p>
-    Comencemos por entender qué es exactamente un sistema dinámico. Se trata
-    de un conjunto de partes (representadas por variables) que interactúan
-    entre sí y siguen un comportamiento regido por reglas preestablecidas
-    (expresadas mediante un sistema de ecuaciones). Además, es dinámico, lo
-    que significa que evoluciona con el tiempo, cambiando de estado a medida
-    que las variables que lo componen toman diferentes valores.
-  </p>
-  <h3 id="section1">Modelo de crecimiento poblacional simple</h3>
-  <p>
-    Veamos un ejemplo de un sistema dinámico que modela de forma muy simple
-    el crecimiento poblacional. En este caso, la población en un instante de
-    tiempo <InlineMath math="t"/> se define como la población en el instante
-    anterior <InlineMath math="t-1"/> multiplicada por un factor{" "}
-    <InlineMath math="k"/>, de modo que la ecuación que describe el
-    comportamiento del sistema es la siguiente:
-  </p>
-  <BlockMath math="x_t = k·x_{t-1}" />
-  <p>
-    Una vez fijado un valor de <InlineMath math="k"/>, vemos que el sistema
-    puede evolucionar de distintas maneras según las condiciones iniciales
-    de las que parta. En este caso, la condición inicial es{" "}
-    <InlineMath math="x_0"/> que es el valor que toma <InlineMath math="x_t"/> para
-    el primer instante de tiempo <InlineMath math="t=0"/>. Luego el sistema irá
-    evolucionando y generando una trayectoria, tal como lo vemos a
-    continuacion.
-  </p>
-  <div className="multiimage-container">
+  return (
+    <div>
+      <p className="upper-title">Entre equilibrios y transformaciones:</p>
+      <div style={{ marginBottom: "30px" }}>
+        <h1>Descubriendo los </h1>
+        <h1 className="main-title">Sistemas Dinámicos</h1>
+      </div>
+      <p className="intro">
+        ¿Alguna vez te preguntaste cómo evoluciona el crecimiento de una
+        población, el impacto de una epidemia, o incluso el flujo de agua que
+        sale de una canilla? Todos estos eventos, y muchos más, pueden
+        entenderse como sistemas dinámicos. Estos sistemas, al ser modelados,
+        nos permiten analizar diferentes escenarios y las posibles evoluciones
+        que podrían ocurrir, todo basado en las condiciones iniciales
+        establecidas.
+      </p>
+      <h2 id="section0">¿Qué es un sistema dinámico?</h2>
+      <p>
+        Comencemos por entender qué es exactamente un sistema dinámico. Se trata
+        de un conjunto de partes (representadas por variables) que interactúan
+        entre sí y siguen un comportamiento regido por reglas preestablecidas
+        (expresadas mediante un sistema de ecuaciones). Además, es dinámico, lo
+        que significa que evoluciona con el tiempo, cambiando de estado a medida
+        que las variables que lo componen toman diferentes valores.
+      </p>
+      <h3 id="section1">Modelo de crecimiento poblacional simple</h3>
+      <p>
+        Veamos un ejemplo de un sistema dinámico que modela de forma muy simple
+        el crecimiento poblacional. En este caso, la población en un instante de
+        tiempo {latexInline("t")} se define como la población en el instante
+        anterior {latexInline("t-1")} multiplicada por un factor{" "}
+        {latexInline("k")}, de modo que la ecuación que describe el
+        comportamiento del sistema es la siguiente:
+      </p>
+      <BlockMath math="x_t = k·x_{t-1}" />
+      <p>
+        Una vez fijado un valor de {latexInline("k")}, vemos que el sistema
+        puede evolucionar de distintas maneras según las condiciones iniciales
+        de las que parta. En este caso, la condición inicial es{" "}
+        {latexInline("x_0")} que es el valor que toma {latexInline("x_t")} para
+        el primer instante de tiempo {latexInline("t=0")}. Luego el sistema irá
+        evolucionando y generando una trayectoria, tal como lo vemos a
+        continuacion.
+      </p>
+      <div className="multiimage-container">
         <div className="image-container">
           <img
             loading="lazy"
-            src="{theme === 'dark' ? '/imgs/chart1-dm.png' : '/imgs/chart1.png'}"
+            src={theme === "dark" ? "/imgs/chart1-dm.png" : "/imgs/chart1.png"}
           ></img>
-          
           <figcaption>
             Fig. 1. Trayectorias que sigue el sistema lo largo del tiempo cuando
             k=1.2 tal que la población crece exponencialmente tendiendo al
@@ -123,7 +107,7 @@ const Content = () => {
         <div className="image-container">
           <img
             loading="lazy"
-            src="{theme === 'dark' ? '/imgs/chart2-dm.png' : '/imgs/chart2.png'}"
+            src={theme === "dark" ? "/imgs/chart2-dm.png" : "/imgs/chart2.png"}
           ></img>
           <figcaption>
             Fig. 2. Trayectorias que sigue el sistema lo largo del tiempo cuando
@@ -133,130 +117,137 @@ const Content = () => {
         </div>
       </div>
       <p>
-      Además, como se puede ver en los gráficos anteriores, dependiendo del
-      valor que tome el factor <InlineMath math="k"/>, el comportamiento será
-      distinto. Para este caso particular, cuando <InlineMath math="k>0"/> el
-      sistema diverge, lo cual tiene sentido, pues la población crece
-      indefinidamente tendiendo al infinito. Por otro lado, cuando{" "}
-      <InlineMath math="k<0"/> la población decrece constantemente en cada
-      instante de tiempo, de manera que el sistema converge a{" "}
-      <InlineMath math="x=0"/>, esto lo veremos más adelante con el nombre de
-      punto fijo.
-    </p>
-    <p>
-      Como este sistema es muy simple, el comportamiento es similar para todos
-      los puntos de <InlineMath math="x"/>, sin embargo, en sistemas más complejos
-      es posible que el comportamiento del sistema cambie según la condición
-      inicial de la que se parta, lo cual tomará particular importancia en
-      sistemas caóticos.
-    </p>
-    <p>
-      Se puede pensar que cada condición inicial determina una trayectoria
-      específica, la forma en que evolucionará el sistema, y pequeñas
-      variaciones en las condiciones iniciales pueden dar como resultado
-      diferentes trayectorias a lo largo del tiempo, puediendo observar para
-      cada una de estas un comportamiento distinto, tal como:
-    </p>
-    <ul>
-      <li>Divergencia</li>
-      <li>Convergencia</li>
-      <li>Oscilación alrededor de un punto</li>
-    </ul>
-    <h3 id="section2">Sistema dinámico con dos variables</h3>
-    <p>
-      Ahora analicemos el siguiente sistema, que si bien sigue siendo bastante
-      simple, resulta un poco más interesante.
-    </p>
-    <BlockMath math="x_t = a·x_{t-1} + b·y_{t-1}" />
-    <BlockMath math="y_t = c·x_{t-1} + d·y_{t-1}" />
-    <p>
-      Con &nbsp;&nbsp;&nbsp;<InlineMath math="a=0.1"/>
-      {","}&nbsp;&nbsp;&nbsp;
-      <InlineMath math="b=0.3"/>
-      {", "}&nbsp;&nbsp;&nbsp;
-      <InlineMath math="c=-1"/>
-      {", "}&nbsp;&nbsp;&nbsp;
-      <InlineMath math="d=0"/>
-    </p>
-    <p>
-      A diferencia del primero, este sistema posee dos variables:{" "}
-      <InlineMath math="x"/> e <InlineMath math="y"/>, y cada una evolucionará a lo
-      largo del tiempo de acuerdo al comportamiento determinado por sus
-      respectivas ecuaciones. En este caso, para ver la evolución de cada
-      trayectoria a lo largo del tiempo necesitamos un gráfico en 3
-      dimensiones <InlineMath math="(x,y,t)"/>.
-      <br />
-      <br />A continuación, se encuentra dicha representación de forma
-      interactiva, donde el eje vertical Z representa el paso del tiempo,
-      mientras que el plano horizontal X,Y representa el estado del sistema,
-      es decir, los valores de las variables <InlineMath math="x"/> e{" "}
-      <InlineMath math="y"/>.
-    </p>
-  `;
-
-  const jsxString2 = `
-  <p>
-    Si probamos posicionando la cámara en distintas direcciones, se puede
-    notar que, independientemente de dónde empiece el sistema, a medida que
-    transcurre el tiempo todas las trayectorias parecen conducir a un punto,
-    el <InlineMath math="(0,0)"/>.
-  </p>
-  <div className="multiimage-container">
-  <div className="image-container">
-    <img
-      loading="lazy"
-      src="{theme === 'dark' ? '/imgs/chart3-dm.png' : '/imgs/chart3.png'}"
-    ></img>
-    <figcaption>
-      Fig. 3. Trayectorias que sigue el sistema en el espacio de fases a
-      lo largo del tiempo, partiendo de distintos puntos
-    </figcaption>
-  </div>
-  <div className="image-container">
-    <img
-      loading="lazy"
-      src="{theme === 'dark' ? '/imgs/chart4-dm.png' : '/imgs/chart4.png'}"
-    ></img>
-    <figcaption>
-      Fig. 4. Trayectorias que sigue el sistema en el espacio de fases a
-      lo largo del tiempo, partiendo de distintos puntos
-    </figcaption>
-  </div>
-</div>
-<p>
-  De alguna manera, este punto está actuando de atractor, tal que el
-  sistema siempre caerá en este punto. Pero… ¿Qué hace especial a este
-  punto? ¿Por qué el sistema termina siempre acercándose? ¿Pueden haber
-  más puntos cómo este? Éstos y otros interrogantes serán abordados en la
-  próxima sección.
-</p>
-<p>
-  Sin embargo, antes, veamos una cosa más. Evidentemente, si queremos ver
-  el valor que toma las variables <InlineMath math="x"/> e <InlineMath math="y"/>{" "}
-  en cada instante de tiempo <InlineMath math="t"/> necesitamos un gráfico en
-  3 dimensiones. Pero usualmente, alcanza con conocer las trayectorias que
-  puede seguir el sistema, sin prestarle atención al instante del tiempo.
-  En este caso, alcanza con un gráfico de dos dimensiones, donde se
-  representen sólo las variables <InlineMath math="x"/> e <InlineMath math="y"/>,
-  dado que nos permite extraer prácticamente la misma información.
-</p>
-<div className="image-container">
-<img
-loading="lazy"
-src="{theme === 'dark' ? '/imgs/chart5-dm.png' : '/imgs/chart5.png'}"
-></img>
-<figcaption>
-Fig. 5. Trayectorias dibujadas sobre el espacio de fases del sistema
-</figcaption>
-</div>
-<p>
-Vemos que efectivamente, el comportamiento observado corresponde al
-mismo de la Fig. 3, donde las trayectorias se acercan en forma
-espiralada al <InlineMath math="(0,0)"/>. Decimos que este tipo de gráficos
-representa el espacio de fases, concepto que veremos a continuación.
-</p>
-
-<h2 id="section3">Algunos conceptos claves</h2>
+        Además, como se puede ver en los gráficos anteriores, dependiendo del
+        valor que tome el factor {latexInline("k")}, el comportamiento será
+        distinto. Para este caso particular, cuando {latexInline("k>0")} el
+        sistema diverge, lo cual tiene sentido, pues la población crece
+        indefinidamente tendiendo al infinito. Por otro lado, cuando{" "}
+        {latexInline("k<0")} la población decrece constantemente en cada
+        instante de tiempo, de manera que el sistema converge a{" "}
+        {latexInline("x=0")}, esto lo veremos más adelante con el nombre de
+        punto fijo.
+      </p>
+      <p>
+        Como este sistema es muy simple, el comportamiento es similar para todos
+        los puntos de {latexInline("x")}, sin embargo, en sistemas más complejos
+        es posible que el comportamiento del sistema cambie según la condición
+        inicial de la que se parta, lo cual tomará particular importancia en
+        sistemas caóticos.
+      </p>
+      <p>
+        Se puede pensar que cada condición inicial determina una trayectoria
+        específica, la forma en que evolucionará el sistema, y pequeñas
+        variaciones en las condiciones iniciales pueden dar como resultado
+        diferentes trayectorias a lo largo del tiempo, puediendo observar para
+        cada una de estas un comportamiento distinto, tal como:
+      </p>
+      <ul>
+        <li>Divergencia</li>
+        <li>Convergencia</li>
+        <li>Oscilación alrededor de un punto</li>
+      </ul>
+      <h3 id="section2">Sistema dinámico con dos variables</h3>
+      <p>
+        Ahora analicemos el siguiente sistema, que si bien sigue siendo bastante
+        simple, resulta un poco más interesante.
+      </p>
+      <BlockMath math="x_t = a·x_{t-1} + b·y_{t-1}" />
+      <BlockMath math="y_t = c·x_{t-1} + d·y_{t-1}" />
+      <p>
+        Con &nbsp;&nbsp;&nbsp;{latexInline("a=0.1")}
+        {","}&nbsp;&nbsp;&nbsp;
+        {latexInline("b=0.3")}
+        {", "}&nbsp;&nbsp;&nbsp;
+        {latexInline("c=-1")}
+        {", "}&nbsp;&nbsp;&nbsp;
+        {latexInline("d=0")}
+      </p>
+      <p>
+        A diferencia del primero, este sistema posee dos variables:{" "}
+        {latexInline("x")} e {latexInline("y")}, y cada una evolucionará a lo
+        largo del tiempo de acuerdo al comportamiento determinado por sus
+        respectivas ecuaciones. En este caso, para ver la evolución de cada
+        trayectoria a lo largo del tiempo necesitamos un gráfico en 3
+        dimensiones {latexInline("(x,y,t)")}.
+        <br />
+        <br />A continuación, se encuentra dicha representación de forma
+        interactiva, donde el eje vertical Z representa el paso del tiempo,
+        mientras que el plano horizontal X,Y representa el estado del sistema,
+        es decir, los valores de las variables {latexInline("x")} e{" "}
+        {latexInline("y")}.
+      </p>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        {sd1 ? (
+          <ThreeJSScene
+            scene={sd1.scene}
+            camera={sd1.camera}
+            config={{ target: sd1.target, orbitControls: true }}
+          />
+        ) : (
+          <></>
+        )}
+      </div>
+      <p>
+        Si probamos posicionando la cámara en distintas direcciones, se puede
+        notar que, independientemente de dónde empiece el sistema, a medida que
+        transcurre el tiempo todas las trayectorias parecen conducir a un punto,
+        el {latexInline("(0,0)")}.
+      </p>
+      <div className="multiimage-container">
+        <div className="image-container">
+          <img
+            loading="lazy"
+            src={theme === "dark" ? "/imgs/chart3-dm.png" : "/imgs/chart3.png"}
+          ></img>
+          <figcaption>
+            Fig. 3. Trayectorias que sigue el sistema en el espacio de fases a
+            lo largo del tiempo, partiendo de distintos puntos
+          </figcaption>
+        </div>
+        <div className="image-container">
+          <img
+            loading="lazy"
+            src={theme === "dark" ? "/imgs/chart4-dm.png" : "/imgs/chart4.png"}
+          ></img>
+          <figcaption>
+            Fig. 4. Trayectorias que sigue el sistema en el espacio de fases a
+            lo largo del tiempo, partiendo de distintos puntos
+          </figcaption>
+        </div>
+      </div>
+      <p>
+        De alguna manera, este punto está actuando de atractor, tal que el
+        sistema siempre caerá en este punto. Pero… ¿Qué hace especial a este
+        punto? ¿Por qué el sistema termina siempre acercándose? ¿Pueden haber
+        más puntos cómo este? Éstos y otros interrogantes serán abordados en la
+        próxima sección.
+      </p>
+      <p>
+        Sin embargo, antes, veamos una cosa más. Evidentemente, si queremos ver
+        el valor que toma las variables {latexInline("x")} e {latexInline("y")}{" "}
+        en cada instante de tiempo {latexInline("t")} necesitamos un gráfico en
+        3 dimensiones. Pero usualmente, alcanza con conocer las trayectorias que
+        puede seguir el sistema, sin prestarle atención al instante del tiempo.
+        En este caso, alcanza con un gráfico de dos dimensiones, donde se
+        representen sólo las variables {latexInline("x")} e {latexInline("y")},
+        dado que nos permite extraer prácticamente la misma información.
+      </p>
+      <div className="image-container">
+        <img
+          loading="lazy"
+          src={theme === "dark" ? "/imgs/chart5-dm.png" : "/imgs/chart5.png"}
+        ></img>
+        <figcaption>
+          Fig. 5. Trayectorias dibujadas sobre el espacio de fases del sistema
+        </figcaption>
+      </div>
+      <p>
+        Vemos que efectivamente, el comportamiento observado corresponde al
+        mismo de la Fig. 3, donde las trayectorias se acercan en forma
+        espiralada al {latexInline("(0,0)")}. Decimos que este tipo de gráficos
+        representa el espacio de fases, concepto que veremos a continuación.
+      </p>
+      <h2 id="section3">Algunos conceptos claves</h2>
       <p>
         Hemos estado hablando, entre otras cosas, de trayectorias, espacios de
         fases y puntos que tienen una influencia particular en el sistema. Antes
@@ -272,13 +263,13 @@ representa el espacio de fases, concepto que veremos a continuación.
         es el conjunto de todos los estados posibles que puede adquirir nuestro
         sistema. En el caso anterior, nuestro sistema estaba compuesto por dos
         variables, por lo que el espacio de fases queda definido por todas las
-        combinaciones posibles de puntos <InlineMath math="(x,y)"/>. Este espacio se
+        combinaciones posibles de puntos {latexInline("(x,y)")}. Este espacio se
         utiliza para trazar las trayectorias y poder analizar los estados que
         adquiere el sistema de forma sencilla y rápida.
       </p>
       <p>
         Por último, nos queda pendiente hablar de aquel punto particular, el{" "}
-        <InlineMath math=" (0,0)"/>. ¿Qué tiene de especial? Bueno, existen puntos
+        {latexInline(" (0,0)")}. ¿Qué tiene de especial? Bueno, existen puntos
         en los que, si el sistema llegar a caer en los mismos, permanecerá
         atrapado allí. Estos puntos reciben el nombre de{" "}
         <b>puntos fijos o puntos de equilibrio</b>, dado que si el sistema cae
@@ -292,7 +283,7 @@ representa el espacio de fases, concepto que veremos a continuación.
         <li>
           <u>Atracción</u>: El sistema tiende a evolucionar hacia estos puntos,
           son atractores. Es el caso de nuestro ejemplo, donde el sistema
-          evolucionaba hacia el <InlineMath math="(0,0)"/>.
+          evolucionaba hacia el {latexInline("(0,0)")}.
           <br />
           Se consideran puntos estables debido a que si producimos una pequeña
           perturbación alejándonos de estos puntos, el sistema volverá hacia los
@@ -309,66 +300,65 @@ representa el espacio de fases, concepto que veremos a continuación.
         </li>
       </ul>
       <div className="monoimage-container">
-      <img
-        loading="lazy"
-        src="{theme === 'dark' ? '/imgs/chart6-dm.png' : '/imgs/chart6.png'}"
-      ></img>
-      <figcaption>
-        Fig. 6. Puntos fijos y sus efectos sobre el sistema. En el primer
-        diagrama se puede ver un punto fijo atractor, en el segundo dos puntos
-        atractores y siete repulsores, y en el tercero un ciclo límite.
-      </figcaption>
-    </div>
-    <h2 id="section4">Clasificación</h2>
-    <p>
-      Ahora bien ¿Son todos los sistemas dinámicos iguales a los dos ejemplos
-      que vimos? ¿Qué tipos de sistemas dinámicos existen? Respondiendo a esta
-      pregunta, podemos decir que a grandes rasgos, existen dos criterios
-      principales para clasificar a los sistemas dinámicos
-    </p>
-    <ul>
-      <li>
-        <b>Según la temporalidad</b>
-        <br />
-        <br />
-        <ul>
-          <li>
-            <u>Tiempo dicreto</u>: El transcurso del tiempo sucede de manera
-            discreta, es decir, de a saltos. A su vez, el comportamiento del
-            sistema se determina a partir de ecuaciones de recurrencia.
-            <BlockMath math="x_t = F(x_{t-1}, t)" />
-            Los dos ejemplos que vimos, efectivamente, son de tiempo discreto.
-          </li>
-          <li>
-            <u>Tiempo continuo</u>: El transcurso del tiempo sucede de manera
-            continua. Además, el comportamiento del sistema queda definido a
-            partir de un sistema de ecuaciones diferenciales.
-            <BlockMath math="\\frac{dx}{dt} = F(x, t)" />
-          </li>
-        </ul>
-      </li>
-      <li>
-        <b>Según la linealidad</b>
-        <br />
-        <br />
-        <ul>
-          <li>
-            <u>Lineales</u>: Tal como el nombre lo indica, el comportamiento
-            queda definido por ecuaciones lineales. Además, a lo sumo tienen
-            un único punto fijo.
-            <br />
-            Los dos ejemplos vistos, también son lineales y de hecho presentan
-            un único punto fijo.
-          </li>
-          <li>
-            <u>No Lineales</u>: El comportamiento queda definido por
-            ecuaciones no lineales. Pueden tener múltiples puntos fijos.
-          </li>
-        </ul>
-      </li>
-    </ul>
-
-    <h2 id="section5">Análisis del comportamiento</h2>
+        <img
+          loading="lazy"
+          src={theme === "dark" ? "/imgs/chart6-dm.png" : "/imgs/chart6.png"}
+        ></img>
+        <figcaption>
+          Fig. 6. Puntos fijos y sus efectos sobre el sistema. En el primer
+          diagrama se puede ver un punto fijo atractor, en el segundo dos puntos
+          atractores y siete repulsores, y en el tercero un ciclo límite.
+        </figcaption>
+      </div>
+      <h2 id="section4">Clasificación</h2>
+      <p>
+        Ahora bien ¿Son todos los sistemas dinámicos iguales a los dos ejemplos
+        que vimos? ¿Qué tipos de sistemas dinámicos existen? Respondiendo a esta
+        pregunta, podemos decir que a grandes rasgos, existen dos criterios
+        principales para clasificar a los sistemas dinámicos
+      </p>
+      <ul>
+        <li>
+          <b>Según la temporalidad</b>
+          <br />
+          <br />
+          <ul>
+            <li>
+              <u>Tiempo dicreto</u>: El transcurso del tiempo sucede de manera
+              discreta, es decir, de a saltos. A su vez, el comportamiento del
+              sistema se determina a partir de ecuaciones de recurrencia.
+              <BlockMath math="x_t = F(x_{t-1}, t)" />
+              Los dos ejemplos que vimos, efectivamente, son de tiempo discreto.
+            </li>
+            <li>
+              <u>Tiempo continuo</u>: El transcurso del tiempo sucede de manera
+              continua. Además, el comportamiento del sistema queda definido a
+              partir de un sistema de ecuaciones diferenciales.
+              <BlockMath math="\frac{dx}{dt} = F(x, t)" />
+            </li>
+          </ul>
+        </li>
+        <li>
+          <b>Según la linealidad</b>
+          <br />
+          <br />
+          <ul>
+            <li>
+              <u>Lineales</u>: Tal como el nombre lo indica, el comportamiento
+              queda definido por ecuaciones lineales. Además, a lo sumo tienen
+              un único punto fijo.
+              <br />
+              Los dos ejemplos vistos, también son lineales y de hecho presentan
+              un único punto fijo.
+            </li>
+            <li>
+              <u>No Lineales</u>: El comportamiento queda definido por
+              ecuaciones no lineales. Pueden tener múltiples puntos fijos.
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <h2 id="section5">Análisis del comportamiento</h2>
       <p>
         Ya tenemos una idea más clara de qué es un sistema dinámico y los
         distintos tipos que existen. Sin embargo, dado un sistema ¿Cómo podemos
@@ -393,9 +383,9 @@ representa el espacio de fases, concepto que veremos a continuación.
       <p>
         Habiamos dicho que los puntos fijos son aquellos puntos en los que una
         vez que el sistema cae en los mismos, no puede salir. En otras palabras,
-        si en el instance de tiempo <InlineMath math="t"/> el sistema se encuentra
+        si en el instance de tiempo {latexInline("t")} el sistema se encuentra
         en un estado X (siendo X un punto fijo), entonces, en el estado de
-        tiempo <InlineMath math="t+1"/> el sistema permanecerá en X.
+        tiempo {latexInline("t+1")} el sistema permanecerá en X.
       </p>
       <p>
         Para detectar puntos fijos, simplemente debemos resolver el sistema de
@@ -403,21 +393,24 @@ representa el espacio de fases, concepto que veremos a continuación.
         cuenta que
       </p>
       <BlockMath math="x_t = x_{t-1}" />
+      {/* <br /> */}
       <p>A continuación un ejemplo:</p>
       <BlockMath math="x_t = 0.5·x_{t-1} + y_{t-1}·0.25" />
       <BlockMath math="y_t = -0.5·x_{t-1} + y_{t-1}·0.75" />
+      {/* <br/> */}
       <p>
         Primero, reescribimos el sistema de educaciones tal que se cumpla{" "}
-        <InlineMath math="X_t=X_{t-1}"/>
+        {latexInline("X_t=X_{t-1}")}
       </p>
       <BlockMath math="x_t = 0.5·x_t + y_t·0.25" />
       <BlockMath math="y_t = -0.5·x_t + y_t·0.75" />
+      {/* <br/> */}
       <p>Luego resolvemos el sistema, obteniendo como resultado:</p>
       <BlockMath math="x_t = 1.5" />
       <BlockMath math="y_t = 0.5" />
       <p>
         Entonces, existe un punto fijo y el mismo se encuentra en{" "}
-        <InlineMath math="(1.5,0.5)"/>
+        {latexInline("(1.5,0.5)")}
       </p>
       <h4 id="section8">En sistemas de tiempo continuo</h4>
       <p>
@@ -432,31 +425,30 @@ representa el espacio de fases, concepto que veremos a continuación.
       <BlockMath math="dX/dt=0" />
       <p> Siendo X las variables del sistema.</p>
       <br />
-
-      
       <p>
         A continuación un ejemplo. Se trata del modelo{" "}
         <i>Predador-Presa de Lotka-Volterra</i> y está definido por las
         siguientes ecuaciones:
       </p>
-      <BlockMath math="\\frac{dx}{dt} = x - xy" />
-      <BlockMath math="\\frac{dy}{dt} = -y + xy" />
+      <BlockMath math="\frac{dx}{dt} = x - xy" />
+      <BlockMath math="\frac{dy}{dt} = -y + xy" />
       <br />
       <p>
         En primer lugar, reescribimos el sistema tal que se cumpla{" "}
-        <InlineMath math="\\frac{dX}{dt}=0"/>
+        {latexInline("\\frac{dX}{dt}=0")}
       </p>
       <div
-        style="
-          display: flex;
-          justify-content: center;
-          align-items: center;"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
       >
         <div>
           <BlockMath math="0 = x - xy" />
           <BlockMath math="0 = -y + xy" />
         </div>
-        <p style="margin: 20px">⟹</p>
+        <p style={{ margin: 20 }}>{latexInline("\\Longrightarrow")}</p>
         <div>
           <BlockMath math="0 = x(1-y)" />
           <BlockMath math="0 = -y(1-x)" />
@@ -466,11 +458,9 @@ representa el espacio de fases, concepto que veremos a continuación.
       <BlockMath math="x_1 = 0 \ ; \ x_2 = 1 " />
       <BlockMath math="y_1 = 0 \ ; \ y_2 = 1 " />
       <p>
-        Notar que este sistema tiene dos puntos fijos: <InlineMath math="(0,0)"/> y{" "}
-        <InlineMath math="(1,1)"/> ya que no es lineal.
+        Notar que este sistema tiene dos puntos fijos: {latexInline("(0,0)")} y{" "}
+        {latexInline("(1,1)")} ya que no es lineal.
       </p>
-
-
       <h3 id="section9">Estabilidad de puntos fijos</h3>
       <p>
         Ya sabemos calcular cuáles son los puntos fijos de nuestro sistema,
@@ -542,20 +532,18 @@ representa el espacio de fases, concepto que veremos a continuación.
           </i>
         </li>
       </ol>
-
-
       <div
-        style="
-          display: flex;
-          flex-direction: column;
-          margin-bottom: 50px;
-          margin-top: 40px;
-        "
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          marginBottom: 50,
+          marginTop: 40,
+        }}
       >
         <div className="monoimage-container">
           <img
             loading="lazy"
-            src="{theme === 'dark' ? '/imgs/chart7-dm.png' : '/imgs/chart7.png'}"
+            src={theme === "dark" ? "/imgs/chart7-dm.png" : "/imgs/chart7.png"}
           ></img>
           <figcaption>
             Fig. 7. Análisis de estabilidad de puntos fijos para sistemas de
@@ -565,7 +553,7 @@ representa el espacio de fases, concepto que veremos a continuación.
         <div className="monoimage-container">
           <img
             loading="lazy"
-            src="{theme === 'dark' ? '/imgs/chart8-dm.png' : '/imgs/chart8.png'}"
+            src={theme === "dark" ? "/imgs/chart8-dm.png" : "/imgs/chart8.png"}
           ></img>
           <figcaption>
             Fig. 8. Análisis de estabilidad de puntos fijos para sistemas de
@@ -573,8 +561,6 @@ representa el espacio de fases, concepto que veremos a continuación.
           </figcaption>
         </div>
       </div>
-
-
       <h4 id="section10">En sistemas lineales</h4>
       <p>
         Continuamos con el sistema lineal utilizado previamente (el mismo de
@@ -582,15 +568,15 @@ representa el espacio de fases, concepto que veremos a continuación.
       </p>
       <BlockMath math="x_t = 0.5·x_{t-1} + y_{t-1}·0.25" />
       <BlockMath math="y_t = -0.5·x_{t-1} + y_{t-1}·0.75" />
-      <p>Cuyo punto fijo se encuentra en <InlineMath math="(1.5,0.5)"/>.</p>
+      <p>Cuyo punto fijo se encuentra en {latexInline("(1.5,0.5)")}.</p>
       <br />
       <br />
       <p>Primero obtenemos la matriz del sistema.</p>
-      <BlockMath math="A = \\begin{bmatrix} 0.5 & 1 \\\\ -0.5 & 1 \\end{bmatrix} "></BlockMath>
-      <BlockMath math="\\lambda_1 = \\frac{3}{4} + \\frac{\\sqrt{7}}{4}i"></BlockMath>
-      <BlockMath math="\\lambda_2 = \\frac{3}{4} - \\frac{\\sqrt{7}}{4}i"></BlockMath>
+      <BlockMath math="A = \begin{bmatrix} 0.5 & 1 \\ -0.5 & 1 \end{bmatrix} "></BlockMath>
+      <BlockMath math="\lambda_1 = \frac{3}{4} + \frac{\sqrt{7}}{4}i"></BlockMath>
+      <BlockMath math="\lambda_2 = \frac{3}{4} - \frac{\sqrt{7}}{4}i"></BlockMath>
       <p>
-        Vemos que: <InlineMath math="|\\\lambda_1| = |\\\lambda_2| = 1"/>
+        Vemos que: {latexInline("|\\lambda_1| = |\\lambda_2| = 1")}
         <br />
         <br />
         Por lo tanto, el comportamiento del punto fijo se trata de un ciclo
@@ -603,129 +589,89 @@ representa el espacio de fases, concepto que veremos a continuación.
       <div className="monoimage-container-small">
         <img
           loading="lazy"
-          src="{theme === 'dark' ? '/imgs/chart9-dm.png' : '/imgs/chart9.png'}"
+          src={theme === "dark" ? "/imgs/chart9-dm.png" : "/imgs/chart9.png"}
         ></img>
         <figcaption>
           Fig. 9. Trayectorias elípticas que sigue el sistema en el espacio de
           fases en regiones cercanas al punto fijo encontrado.
         </figcaption>
       </div>
-
       <h4 id="section11">En sistemas no lineales</h4>
       <p>
         Continuamos con el sistema no lineal de <i>Lotka-Volterra</i>, utilizado
         previamente en la detección de puntos fijos para sistemas de tiempo
         continuo.
       </p>
-      <BlockMath math="\\frac{dx}{dt} = x - xy" />
-      <BlockMath math="\\frac{dy}{dt} = -y + xy" />
+      <BlockMath math="\frac{dx}{dt} = x - xy" />
+      <BlockMath math="\frac{dy}{dt} = -y + xy" />
       <p>
-        Sabemos que posee dos puntos fijos: <InlineMath math="(0,0)"/> y{" "}
-        <InlineMath math="(1,1)"/>
+        Sabemos que posee dos puntos fijos: {latexInline("(0,0)")} y{" "}
+        {latexInline("(1,1)")}
         <br />
         <br />
         <br />
         Lo primero que debemos hacer es obtener la matriz jacobiana. Para esto,
         derivamos cada función respecto de cada variable.
       </p>
-      <BlockMath math="J_f = \\begin{bmatrix} 1 - y & -x \\\\ y & -1+x \\end{bmatrix} "></BlockMath>
+      <BlockMath math="J_f = \begin{bmatrix} 1 - y & -x \\ y & -1+x \end{bmatrix} "></BlockMath>
       <p>
         Luego, hay que evaluar la matriz jacobiana en cada uno de los puntos
         fijos. Para cada matriz obtenida, obtener autovalores y realizar el
         análisis de la estabilidad de los puntos fijos tal como en el ejemplo
         anterior
       </p>
-
       <ul>
-      <li>
-        <b>Punto fijo <InlineMath math="(0,0)"/></b>
-        <BlockMath math="J_f = \\begin{bmatrix} 1 & 0 \\\\ 0 & -1 \\end{bmatrix} "></BlockMath>
-        Autovalores: <InlineMath math="\\lambda_1 = 1"/> &nbsp;&nbsp; y
-        &nbsp;&nbsp;
-        <InlineMath math="\\lambda_2 = -1"/>
+        <li>
+          <b>Punto fijo {latexInline("(0,0)")}</b>
+          <BlockMath math="J_f = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} "></BlockMath>
+          Autovalores: {latexInline("\\lambda_1 = 1")} &nbsp;&nbsp; y
+          &nbsp;&nbsp;
+          {latexInline("\\lambda_2 = -1")}
+          <br />
+          <br />
+          Tenemos que {latexInline("Re(\\lambda_1) = 1")} &nbsp;&nbsp; y
+          &nbsp;&nbsp; {latexInline("Re(\\lambda_2) = -1")}.
+          <br />
+          <br />
+          Es decir, {latexInline("Re(\\lambda_1)>0")} &nbsp;&nbsp; y
+          &nbsp;&nbsp; {latexInline("Re(\\lambda_2)<0")}, por lo que se trata de
+          un punto fijo inestable de tipo <i>silla (Saddle point)</i>. Esto
+          significa que atrae en una dirección pero repele en otra.
+        </li>
         <br />
         <br />
-        Tenemos que <InlineMath math="Re(\\lambda_1) = 1"/> &nbsp;&nbsp; y
-        &nbsp;&nbsp; <InlineMath math="Re(\\lambda_2) = -1"/>.
-        <br />
-        <br />
-        Es decir, <InlineMath math="Re(\\lambda_1)>0"/> &nbsp;&nbsp; y
-        &nbsp;&nbsp; <InlineMath math="Re(\\lambda_2)<0"/>, por lo que se trata de
-        un punto fijo inestable de tipo <i>silla (Saddle point)</i>. Esto
-        significa que atrae en una dirección pero repele en otra.
-      </li>
-      <br />
-      <br />
-      <li>
-        <b>Punto fijo <InlineMath math="(1,1)"/></b>
-        <BlockMath math="J_f = \\begin{bmatrix} 0 & -1 \\\\ 1 & 0 \\end{bmatrix} "></BlockMath>
-        Autovalores: <InlineMath math="\\lambda_1 = i"/> &nbsp;&nbsp; y
-        &nbsp;&nbsp;
-        <InlineMath math="\\lambda_2 = -i"/>
-        <br />
-        <br />
-        Tenemos que <InlineMath math="Re(\\lambda_1) = 0"/> &nbsp;&nbsp; y
-        &nbsp;&nbsp; <InlineMath math="Re(\\lambda_2) = 0"/>.
-        <br />
-        <br />
-        Es decir, <InlineMath math="Re(\\lambda_1)>0"/> &nbsp;&nbsp; y
-        &nbsp;&nbsp; <InlineMath math="Re(\\lambda_2)<0"/>, por lo que se trata de
-        un punto fijo estable de tipo <i>Lyapunov</i>. Esto significa que se
-        genera un ciclo limite donde el sistema orbita alrededor del punto en
-        sus inmediaciones.
-      </li>
-    </ul>
-    <p>Comprobemos esto resultados graficando el espacio de fases</p>
-    <div className="monoimage-container-small">
-      <img
-        loading="lazy"
-        src="{theme === 'dark' ? '/imgs/chart10-dm.png' : '/imgs/chart10.png'}"
-      ></img>
-      <figcaption>
-        Fig. 10. Trayectorias que sigue el modelo de Lotka-Volterra. El (0,0)
-        es un punto silla, que atrae en el eje vertical y repele en el
-        horizontal. El (1,1) es un punto estable de Lyapunov, que genera un
-        ciclo límite.
-      </figcaption>
-    </div>
-  `;
-
-  function processJsxString(s) {
-    return s.replace(/\{([^{}]+)\}/g, (match, p1) => {
-      try {
-        // Attempt to evaluate the expression inside {}
-        return eval(p1);
-      } catch (error) {
-        console.error("Error evaluating expression:", error);
-        return match; // Return original expression if evaluation fails
-      }
-    });
-  }
-
-  const processedJsxString = processJsxString(jsxString);
-  const processedJsxString2 = processJsxString(jsxString2);
-
-  /* //---------- JSX PARSER -----------// */
-
-  return (
-    <div>
-      <JsxParser
-        jsx={processedJsxString}
-        components={{ InlineMath, BlockMath }}
-      />
-      {sd1 ? (
-        <ThreeJSScene
-          scene={sd1.scene}
-          camera={sd1.camera}
-          config={{ target: sd1.target, orbitControls: true }}
-        />
-      ) : (
-        <></>
-      )}
-      <JsxParser
-        jsx={processedJsxString2}
-        components={{ InlineMath, BlockMath }}
-      />
+        <li>
+          <b>Punto fijo {latexInline("(1,1)")}</b>
+          <BlockMath math="J_f = \begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix} "></BlockMath>
+          Autovalores: {latexInline("\\lambda_1 = i")} &nbsp;&nbsp; y
+          &nbsp;&nbsp;
+          {latexInline("\\lambda_2 = -i")}
+          <br />
+          <br />
+          Tenemos que {latexInline("Re(\\lambda_1) = 0")} &nbsp;&nbsp; y
+          &nbsp;&nbsp; {latexInline("Re(\\lambda_2) = 0")}.
+          <br />
+          <br />
+          Es decir, {latexInline("Re(\\lambda_1)>0")} &nbsp;&nbsp; y
+          &nbsp;&nbsp; {latexInline("Re(\\lambda_2)<0")}, por lo que se trata de
+          un punto fijo estable de tipo <i>Lyapunov</i>. Esto significa que se
+          genera un ciclo limite donde el sistema orbita alrededor del punto en
+          sus inmediaciones.
+        </li>
+      </ul>
+      <p>Comprobemos esto resultados graficando el espacio de fases</p>
+      <div className="monoimage-container-small">
+        <img
+          loading="lazy"
+          src={theme === "dark" ? "/imgs/chart10-dm.png" : "/imgs/chart10.png"}
+        ></img>
+        <figcaption>
+          Fig. 10. Trayectorias que sigue el modelo de Lotka-Volterra. El (0,0)
+          es un punto silla, que atrae en el eje vertical y repele en el
+          horizontal. El (1,1) es un punto estable de Lyapunov, que genera un
+          ciclo límite.
+        </figcaption>
+      </div>
     </div>
   );
 };
