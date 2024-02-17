@@ -1,11 +1,10 @@
 import "katex/dist/katex.min.css";
 import { BlockMath, InlineMath } from "react-katex";
 import "./post_style.css";
-// import SDEjemplo1 from "../SDEjemplo1";
+import SDEjemplo1 from "../SDEjemplo1";
 import ThreeJSScene from "../3DScene/Scene";
 import { useEffect, useState } from "react";
 import { useTheme } from "../../ThemeProvider";
-import axios from "axios";
 
 const Content = () => {
   const latexInline = (text) => {
@@ -14,30 +13,13 @@ const Content = () => {
 
   const { theme } = useTheme();
 
-  const [SDEjemplo1, setSDEjemplo1] = useState("");
+  const [sd1, setSd1] = useState(
+    SDEjemplo1(theme === "dark" ? "white" : "#09090b")
+  );
 
   useEffect(() => {
-    const getScene = async () => {
-      console.log("entraaa")
-      try {
-        const r = await axios.get("http://localhost:3005/functions/sd1");
-        setSDEjemplo1(new Function("lineColor", r.data));
-        console.log("set sd1");
-      } catch (e) {
-        console.log(e);
-      }
-    };
-    getScene();
-  }, []);
-
-  // console.log("sd1");
-  // const [sd1, setSd1] = useState(
-  //   SDEjemplo1(theme === "dark" ? "white" : "#09090b")
-  // );
-
-  // useEffect(() => {
-  //   setSd1(SDEjemplo1(theme === "dark" ? "white" : "#09090b"));
-  // }, [theme]);
+    setSd1(SDEjemplo1(theme === "dark" ? "white" : "#09090b"));
+  }, [theme]);
 
   return (
     <div>
@@ -171,7 +153,7 @@ const Content = () => {
         <ThreeJSScene
           scene={sd1.scene}
           camera={sd1.camera}
-          config={{ target: sd1.target, orbitControls: true }}
+          config={{target:sd1.target, orbitControls:true}}
         />
       </div>
       <p>
@@ -419,7 +401,7 @@ const Content = () => {
       </p>
       <BlockMath math="\frac{dx}{dt} = x - xy" />
       <BlockMath math="\frac{dy}{dt} = -y + xy" />
-      <br />
+      <br/>
       <p>
         En primer lugar, reescribimos el sistema tal que se cumpla{" "}
         {latexInline("\\frac{dX}{dt}=0")}
@@ -500,8 +482,8 @@ const Content = () => {
 
         <li>
           Determinar el tipo de punto fijo teniendo en cuenta:
-          <br />
-          <br />
+          <br/>
+          <br/>
           <ul>
             <li>
               Si es de <b>tiempo discreto</b>, analizar si el modulo es menor,
